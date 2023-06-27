@@ -1,0 +1,40 @@
+<!-- fragment_menu.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Freakuency Tuner Menu"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+
+    <Button
+        android:id="@+id/btnStandardTuner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Standard Tuner" />
+
+    <Button
+        android:id="@+id/btnChromaticTuner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chromatic Tuner" />
+
+    <Button
+        android:id="@+id/btnMetronome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Metronome" />
+
+    <Button
+        android:id="@+id/btnTabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tabs" />
+
+</LinearLayout>

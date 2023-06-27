@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Project 01</string>
+    <string name="app_name">Freakuency Tuner</string>
+    <string name="header_text">Please enter your username and password below to login:</string>
+    <string name="welcome_text">Welcome to Freakuency Tuner \'%s\' we are excited to have you here!</string>
+    <string name="login_form_entry_error">Please fill in both username and password fields!</string>
+    <string name="login_error">Either your user name or password is not recognised! Please try again.</string>
+    <string name="username_label">Enter your username:</string>
+    <string name="password_label">Enter your password:</string>
+    <string name="submit_button_text">LOGIN</string>
+    <string name="back_button_text">GO BACK</string>
+    <string name="continue_button_text">Continue</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
