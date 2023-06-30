@@ -1,0 +1,58 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_recent"
+            android:icon="@drawable/recent"
+            android:title="@string/recent" />
+        <item
+            android:id="@+id/nav_favorites"
+            android:icon="@drawable/favorites"
+            android:title="@string/favorites" />
+        <item
+            android:id="@+id/nav_standard_tuner"
+            android:icon="@drawable/baseline_music_note_24"
+            android:title="@string/standard_tuner" />
+        <item
+            android:id="@+id/nav_chromatic_tuner"
+            android:icon="@drawable/baseline_music_note_24"
+            android:title="@string/chromatic_tuner" />
+        <item
+            android:id="@+id/nav_metronome"
+            android:icon="@drawable/recent"
+            android:title="@string/metronome" />
+        <item
+            android:id="@+id/nav_tabs"
+            android:icon="@drawable/tabs"
+            android:title="@string/tabs" />
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_archive"
+            android:icon="@drawable/archive"
+            android:title="@string/archive" />
+        <item
+            android:id="@+id/nav_bin"
+            android:icon="@drawable/bin"
+            android:title="@string/bin" />
+        <item
+            android:id="@+id/nav_resources"
+            android:icon="@drawable/resources"
+            android:title="@string/resources" />
+        <item
+            android:id="@+id/nav_shopping"
+            android:icon="@drawable/shopping"
+            android:title="@string/shopping" />
+    </group>
+
+</menu>

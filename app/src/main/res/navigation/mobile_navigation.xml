@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="edu.msudenver.cs3013.navigationdrawer.MenuFragment"
+        android:name="edu.msudenver.cs3013.project01.MenuFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_menu">
         <action
@@ -20,62 +20,56 @@
             android:id="@+id/nav_home_to_chromatic_tuner"
             app:destination="@id/nav_chromatic_tuner"
             app:popUpTo="@id/nav_home" />
+        <action
+            android:id="@+id/nv_home_to_metronome"
+            app:destination="@id/nav_metronome"
+            app:popUpTo="@id/nav_home" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_content"
-        android:name="edu.msudenver.cs3013.navigationdrawer.ContentFragment"
+        android:name="edu.msudenver.cs3013.project01.ContentFragment"
         android:label="@string/content"
         tools:layout="@layout/fragment_content" />
 
     <fragment
         android:id="@+id/nav_recent"
-        android:name="edu.msudenver.cs3013.navigationdrawer.RecentFragment"
+        android:name="edu.msudenver.cs3013.project01.RecentFragment"
         android:label="@string/recent"
         tools:layout="@layout/fragment_recent" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="edu.msudenver.cs3013.navigationdrawer.FavoritesFragment"
+        android:name="edu.msudenver.cs3013.project01.FavoritesFragment"
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/nav_archive"
-        android:name="edu.msudenver.cs3013.navigationdrawer.ArchiveFragment"
+        android:name="edu.msudenver.cs3013.project01.ArchiveFragment"
         android:label="@string/archive"
         tools:layout="@layout/fragment_archive" />
 
     <fragment
         android:id="@+id/nav_bin"
-        android:name="edu.msudenver.cs3013.navigationdrawer.BinFragment"
+        android:name="edu.msudenver.cs3013.project01.BinFragment"
         android:label="@string/bin"
         tools:layout="@layout/fragment_archive" />
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="edu.msudenver.cs3013.navigationdrawer.SettingFragment"
+        android:name="edu.msudenver.cs3013.project01.SettingFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_setting" />
 
     <fragment
         android:id="@+id/nav_chromatic_tuner"
-        android:name="edu.msudenver.cs3013.navigationdrawer.ChromaticTunerFragment"
-        android:label="@string/chromatic_tuner"
+        android:name="edu.msudenver.cs3013.project01.ChromaticTunerFragment"
+        android:label="Chromatic Tuner"
         tools:layout="@layout/fragment_chromatic_tuner" />
     <fragment
-        android:id="@+id/nav_standard_tuner"
-        android:name="edu.msudenver.cs3013.navigationdrawer.StandardTunerFragment"
-        android:label="@string/standard_tuner"
-        tools:layout="@layout/fragment_standard_tuner" />
-    <fragment
         android:id="@+id/nav_metronome"
-        android:name="edu.msudenver.cs3013.navigationdrawer.MetronomeFragment"
-        android:label="@string/metronome"
+        android:name="edu.msudenver.cs3013.project01.MetronomeFragment"
+        android:label="Metronome"
         tools:layout="@layout/fragment_metronome" />
-    <fragment
-        android:id="@+id/nav_tabs"
-        android:name="edu.msudenver.cs3013.navigationdrawer.TabsFragment"
-        android:label="@string/tabs"
-        tools:layout="@layout/fragment_tabs" />
 </navigation>

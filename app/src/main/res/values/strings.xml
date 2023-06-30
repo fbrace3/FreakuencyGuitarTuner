@@ -35,6 +35,7 @@
     <string name="submit_button_text">LOGIN</string>
     <string name="back_button_text">GO BACK</string>
     <string name="continue_button_text">Continue</string>
+    <string name="constant_log_in">\'%s\' is logged in</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_standard"
+        android:title="Standard"
+        android:icon="@drawable/baseline_music_note_24" />
+    <item
+        android:id="@+id/menu_chromatic"
+        android:title="Chromatic"
+        android:icon="@drawable/baseline_music_note_24" />
+    <item
+        android:id="@+id/menu_metronome"
+        android:title="Metronome"
+        android:icon="@drawable/recent" />
+    <item
+        android:id="@+id/menu_tabs"
+        android:title="Tabs"
+        android:icon="@drawable/tabs" />
+    </menu>

@@ -7,82 +7,55 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MenuFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MenuFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var navController: NavController
+    private lateinit var chromaticTunerButton: Button
+    private lateinit var metronomeButton: Button
+//    private lateinit var tabsButton: Button
 
-    private val chromaticTunerButton: Button
-        get() = view?.findViewById(R.id.btnChromaticTuner) as Button
-
-    private val metronomeButton: Button
-        get() = view?.findViewById(R.id.btnMetronome) as Button
-
-    private val tabsButton: Button
-        get() = view?.findViewById(R.id.btnTabs) as Button
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var logged_in_text: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        chromaticTunerButton.setOnClickListener {
-            val intent = Intent(requireContext(), TunerActivity::class.java)
-            startActivity(intent)
-        }
-            metronomeButton.setOnClickListener {
-                val intent = Intent(requireContext(), MetronomeActivity::class.java)
-                startActivity(intent)
-            }
-            tabsButton.setOnClickListener {
-                val intent = Intent(requireContext(), TabsActivity::class.java)
-                startActivity(intent)
-            }
-    }
+       val username = arguments?.getString(LOGGED_IN_USERNAME) // Replace "username" with the key you used in MenuActivity
+       val loggedInMessage = getString(R.string.constant_log_in, username)
+        logged_in_text = view.findViewById(R.id.logged_in_text)
+       logged_in_text.text = loggedInMessage
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MenuFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MenuFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        // Initialize the navigation controller
+        navController = Navigation.findNavController(view)
+
+        // Initialize the buttons
+        chromaticTunerButton = view.findViewById(R.id.btnChromaticTuner)
+        metronomeButton = view.findViewById(R.id.btnMetronome)
+//        tabsButton = view.findViewById(R.id.btnTabs)
+
+        // Set click listeners for the buttons
+        chromaticTunerButton.setOnClickListener {
+            navController.navigate(R.id.nav_chromatic_tuner)
+        }
+
+        metronomeButton.setOnClickListener {
+            navController.navigate(R.id.nav_metronome)
+        }
+//
+//        tabsButton.setOnClickListener {
+//            navController.navigate(R.id.nav_tabs)
+//        }
     }
 }
+

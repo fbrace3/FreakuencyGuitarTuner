@@ -42,10 +42,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:textSize">20sp</item>
         <item name="android:inputType">text</item>
-        <item name="android:background">#676767</item>
-        <item name="android:textColor">#DADADA</item>
-        <item name="android:textColorHint">#A5A5A5</item>
-        <item name="android:shape">oval</item>
+
     </style>
 
     <style name="button">

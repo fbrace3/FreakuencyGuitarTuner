@@ -1,5 +1,6 @@
 package edu.msudenver.cs3013.project01
 
+
 import android.media.AudioAttributes
 import android.media.SoundPool
 import android.os.Bundle
@@ -19,6 +20,7 @@ class ChromaticTunerFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var soundPool: SoundPool
+    private lateinit var backButton: Button
     private var soundMap: Map<String, Int> = HashMap()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +35,12 @@ class ChromaticTunerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_chromatic_tuner, container, false)
-    }
+
+
+        }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,13 +69,24 @@ class ChromaticTunerFragment : Fragment() {
             "E" to soundPool.load(requireContext(), R.raw.e_note, 1),
             "F" to soundPool.load(requireContext(), R.raw.f_note, 1),
             "F#" to soundPool.load(requireContext(), R.raw.f_sharp_note, 1),
-            "G" to soundPool.load(requireContext(), R.raw.g3_note, 1),
+            "G" to soundPool.load(requireContext(), R.raw.g_note, 1),
             "G#" to soundPool.load(requireContext(), R.raw.g_sharp_note, 1),
             "A" to soundPool.load(requireContext(), R.raw.a_note, 1),
             "A#" to soundPool.load(requireContext(), R.raw.a_sharp_note, 1),
             "B" to soundPool.load(requireContext(), R.raw.b_note, 1)
         )
+
+        soundPool.setOnLoadCompleteListener { soundPool, sampleId, status ->
+            if (status == 0) {
+                // Sound loaded successfully
+                // You can perform any additional actions here if needed
+            } else {
+                // Failed to load sound
+                // You can handle the error here if needed
+            }
+        }
     }
+
 
     private fun setupButtons() {
         view?.findViewById<Button>(R.id.btnC)?.setOnClickListener {
@@ -119,16 +136,15 @@ class ChromaticTunerFragment : Fragment() {
         view?.findViewById<Button>(R.id.btnB)?.setOnClickListener {
             playSound("B")
         }
+        view?.findViewById<Button>(R.id.btnBack)?.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
     }
 
     private fun playSound(note: String) {
-        val soundResource = getSoundResource(note)
-        soundResource?.let {
-            val mediaPlayer = MediaPlayer.create(requireContext(), it)
-            mediaPlayer.start()
-            mediaPlayer.setOnCompletionListener {
-                mediaPlayer.release()
-            }
+        val soundId = soundMap[note]
+        soundId?.let {
+            soundPool.play(it, 1f, 1f, 0, 0, 1f)
         }
     }
 
@@ -139,16 +155,5 @@ class ChromaticTunerFragment : Fragment() {
 
         val resId = resources.getIdentifier(resourceName, "raw", requireContext().packageName)
         return if (resId != 0) resId else null
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ChromaticTunerFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

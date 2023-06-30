@@ -1,6 +1,5 @@
 package edu.msudenver.cs3013.project01
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -40,8 +39,9 @@ class WelcomeActivity : AppCompatActivity() {
                 isLoggedIn = true
                 continueButton.isVisible = true
                 continueButton.setOnClickListener{
-                    val intent = Intent(this, MenuActivity::class.java)
-                    startActivity(intent) }
+                    val menuIntent = Intent(this, MainActivity::class.java)
+                    intent.putExtra(LOGGED_IN_USERNAME, userNameForm)
+                    startActivity(menuIntent) }
 
             } else {
                 header.text = getString(R.string.login_error)

@@ -1,14 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MetronomeFragment">
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/editTextBpm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter BPM"
+        android:textSize="48dp"
+        android:padding="10dp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="0dp">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/light1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/red"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Blinking Light 1" />
+
+        <ImageView
+            android:id="@+id/light2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/blue"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Blinking Light 2"
+            android:layout_marginLeft="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="Start"
+            android:textSize="8sp"
+            android:background="@drawable/play"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="Stop"
+            android:textSize="8sp"
+            android:background="@drawable/stop"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
