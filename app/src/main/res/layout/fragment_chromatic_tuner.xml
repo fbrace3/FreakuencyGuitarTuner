@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".TunerActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/instructions"

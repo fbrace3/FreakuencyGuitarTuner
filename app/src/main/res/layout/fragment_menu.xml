@@ -1,40 +1,62 @@
-<!-- fragment_menu.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/logged_in_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Freakuency Tuner Menu"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:text="User is logged in"
+        android:textSize="8sp"
+        android:textColor="#000000"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="9dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/logged_in_text"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/btnStandardTuner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Standard Tuner" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Freakuency Tuner Menu"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:gravity="center"/>
 
-    <Button
-        android:id="@+id/btnChromaticTuner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chromatic Tuner" />
+        <Button
+            android:id="@+id/btnStandardTuner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Standard Tuner"
 
-    <Button
-        android:id="@+id/btnMetronome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Metronome" />
+            android:gravity="center"/>
 
-    <Button
-        android:id="@+id/btnTabs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tabs" />
+        <Button
+            android:id="@+id/btnChromaticTuner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chromatic Tuner"
+            android:gravity="center"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnMetronome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Metronome"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/btnTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tabs"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

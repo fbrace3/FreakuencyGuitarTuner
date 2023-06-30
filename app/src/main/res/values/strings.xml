@@ -1,5 +1,31 @@
 <resources>
-    <string name="app_name">Freakuency Tuner</string>
+    <string name="app_name">Navigation Drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="content">Content</string>
+    <string name="archive">Archive</string>
+    <string name="recent">Recent</string>
+    <string name="favorites">Favorites</string>
+    <string name="bin">Bin</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="settings_fragment">Settings Fragment</string>
+    <string name="content_fragment">Content Fragment</string>
+    <string name="archive_fragment">Archive Fragment</string>
+    <string name="recent_fragment">Recent Fragment</string>
+    <string name="favorites_fragment">Favorites Fragment</string>
+    <string name="bin_fragment">Bin Fragment</string>
+    <string name="link_to_content_button">Link to Content Button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="standard_tuner">Standard Tuner</string>
+    <string name="chromatic_tuner">Chromatic Tuner</string>
+    <string name="metronome">Metronome</string>
+    <string name="tabs">Tabs</string>
+    <string name="resources">Resources</string>
+    <string name="shopping">Shopping</string>
+
+
     <string name="header_text">Please enter your username and password below to login:</string>
     <string name="welcome_text">Welcome to Freakuency Tuner \'%s\' we are excited to have you here!</string>
     <string name="login_form_entry_error">Please fill in both username and password fields!</string>
@@ -10,5 +36,5 @@
     <string name="back_button_text">GO BACK</string>
     <string name="continue_button_text">Continue</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
