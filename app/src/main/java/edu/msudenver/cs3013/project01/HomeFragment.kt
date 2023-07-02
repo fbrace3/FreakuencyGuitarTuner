@@ -38,8 +38,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         view.findViewById<Button>(R.id.button_home)?.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.nav_home_to_content, null)
-        )
+            Navigation.createNavigateOnClickListener(R.id.nav_menu, null))
         return view
     }
 

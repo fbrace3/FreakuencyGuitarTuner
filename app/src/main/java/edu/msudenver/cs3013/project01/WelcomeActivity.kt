@@ -39,9 +39,12 @@ class WelcomeActivity : AppCompatActivity() {
                 isLoggedIn = true
                 continueButton.isVisible = true
                 continueButton.setOnClickListener{
-                    val menuIntent = Intent(this, MainActivity::class.java)
-                    intent.putExtra(LOGGED_IN_USERNAME, userNameForm)
-                    startActivity(menuIntent) }
+                    Intent(this, MainActivity::class.java).also { mainIntent ->
+                        //Add the data
+                        mainIntent.putExtra(USER_NAME_KEY, userNameForm)
+
+                        startActivity(mainIntent)
+                    }}
 
             } else {
                 header.text = getString(R.string.login_error)

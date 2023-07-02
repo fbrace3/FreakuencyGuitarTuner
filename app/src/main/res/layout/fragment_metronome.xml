@@ -52,25 +52,26 @@
 
         <Button
             android:id="@+id/startButton"
-            android:layout_width="48dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="Start"
-            android:textSize="8sp"
-            android:background="@drawable/play"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/holo_blue_light"
             android:layout_marginRight="16dp"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/stopButton"
-            android:layout_width="48dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="Stop"
-            android:textSize="8sp"
-            android:background="@drawable/stop"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/holo_blue_dark"
             android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
+
 
     </LinearLayout>
 

@@ -11,15 +11,17 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import android.util.Log
+
 
 
 class MenuFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var chromaticTunerButton: Button
     private lateinit var metronomeButton: Button
-//    private lateinit var tabsButton: Button
+    private lateinit var tabsButton: Button
 
-    private lateinit var logged_in_text: TextView
+    private lateinit var loggedInText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +33,12 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       val username = arguments?.getString(LOGGED_IN_USERNAME) // Replace "username" with the key you used in MenuActivity
-       val loggedInMessage = getString(R.string.constant_log_in, username)
-        logged_in_text = view.findViewById(R.id.logged_in_text)
-       logged_in_text.text = loggedInMessage
+//        val username = arguments?.getString(USER_NAME_KEY)
+        val username = "fredo"
+
+        val loggedInMessage = getString(R.string.constant_log_in, username)
+        loggedInText = view.findViewById(R.id.logged_in_text)
+        loggedInText.text = loggedInMessage
 
         // Initialize the navigation controller
         navController = Navigation.findNavController(view)
@@ -42,7 +46,7 @@ class MenuFragment : Fragment() {
         // Initialize the buttons
         chromaticTunerButton = view.findViewById(R.id.btnChromaticTuner)
         metronomeButton = view.findViewById(R.id.btnMetronome)
-//        tabsButton = view.findViewById(R.id.btnTabs)
+        tabsButton = view.findViewById(R.id.btnTabs)
 
         // Set click listeners for the buttons
         chromaticTunerButton.setOnClickListener {
@@ -52,10 +56,14 @@ class MenuFragment : Fragment() {
         metronomeButton.setOnClickListener {
             navController.navigate(R.id.nav_metronome)
         }
-//
-//        tabsButton.setOnClickListener {
-//            navController.navigate(R.id.nav_tabs)
-//        }
+
+        tabsButton.setOnClickListener {
+            val intent = Intent(activity, TabsActivity::class.java)
+            startActivity(intent)
+        }
+    }
+    companion object {
+        const val USER_NAME_KEY = "username"
     }
 }
 

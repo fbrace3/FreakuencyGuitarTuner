@@ -69,5 +69,12 @@
         <item name="android:background">@drawable/edit_text_background_blue</item>
         <!-- Other attributes for the EditText style -->
     </style>
+    <style name="StarSignTextView" parent="Base.TextAppearance.AppCompat.Large" >
+        <item name="android:padding">18dp</item>
+    </style>
+
+    <style name="StarSignTextViewHeader" parent="Base.TextAppearance.AppCompat.Display1" >
+        <item name="android:padding">18dp</item>
+    </style>
 
 </resources>

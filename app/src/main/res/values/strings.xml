@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Navigation Drawer</string>
+    <string name="app_name">Freakuency Tuner</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="home">Home</string>
     <string name="settings">Settings</string>
@@ -35,7 +35,15 @@
     <string name="submit_button_text">LOGIN</string>
     <string name="back_button_text">GO BACK</string>
     <string name="continue_button_text">Continue</string>
-    <string name="constant_log_in">\'%s\' is logged in</string>
+    <string name="constant_log_in">%s is logged in</string>
+
+    <string name="tab1">Rocky Top</string>
+    <string name="tab2">Sweet Home Alabama</string>
+    <string name="tab3">Wagon Wheel</string>
+    <string name="tab4">Salt Creek</string>
+    <string name="unknown_tab">Unknown Tab</string>
+    <string name="tabs_header">Tabs</string>
+    <string name="menu">Menu</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

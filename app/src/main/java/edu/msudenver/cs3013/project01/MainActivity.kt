@@ -11,42 +11,39 @@ import androidx.navigation.ui.*;
 import com.google.android.material.navigation.NavigationView;
 
 
+
 class MainActivity : AppCompatActivity() {
-    private lateinit var appBarConfiguration: AppBarConfiguration;
+    private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        intent.let { loginIntent ->
+//        val intent = intent
+//        val userName = intent.getStringExtra(USER_NAME_KEY)
+        val  userName = "fredooo"
+        val bundle = Bundle()
+        bundle.putString("userName", userName)
+// Use the userName variable as needed
 
-            val userNameForm = loginIntent?.getStringExtra(LOGGED_IN_USERNAME) ?: ""
-            val fragment = MenuFragment()
-            val bundle = Bundle()
-            bundle.putString(LOGGED_IN_USERNAME, userNameForm)
-            fragment.arguments = bundle
-        }
 
-        setSupportActionBar(findViewById(R.id.toolbar));
+        setSupportActionBar(findViewById(R.id.toolbar))
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-                    as NavHostFragment;
-        val navController = navHostFragment.navController;
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.setGraph(R.navigation.mobile_navigation, bundle)
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_recent, R.id.nav_favorites,
-                R.id.nav_archive, R.id.nav_bin,
+                R.id.nav_archive, R.id.nav_bin
             ),
-            findViewById(R.id.drawer_layout));
-        setupActionBarWithNavController(navController, appBarConfiguration);
-        findViewById<NavigationView>(R.id.nav_view)?.setupWithNavController(navController);
-
-
-
-
-
-
-
+            findViewById(R.id.drawer_layout)
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        findViewById<NavigationView>(R.id.nav_view)?.setupWithNavController(navController)
     }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment);
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp();
@@ -61,5 +58,7 @@ class MainActivity : AppCompatActivity() {
                 || super.onOptionsItemSelected(item)
     }
 
-
+    companion object {
+        const val USER_NAME_KEY = "username"
+    }
 }

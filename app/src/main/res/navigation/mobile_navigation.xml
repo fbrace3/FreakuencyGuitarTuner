@@ -3,26 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home"
+    app:startDestination="@+id/nav_menu"
     app:defaultNavHost="true">
 
 
+<!--    <fragment-->
+<!--        android:id="@+id/nav_home"-->
+<!--        android:name="edu.msudenver.cs3013.project01.HomeFragment"-->
+<!--        android:label="@string/home"-->
+<!--        tools:layout="@layout/fragment_home">-->
+<!--        <action-->
+<!--            android:id="@+id/nav_home_to_menu"-->
+<!--            app:destination="@id/nav_menu"-->
+<!--            app:popUpTo="@id/nav_home" />-->
+<!--    </fragment>-->
+
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_menu"
         android:name="edu.msudenver.cs3013.project01.MenuFragment"
-        android:label="@string/home"
+        android:label="@string/menu"
         tools:layout="@layout/fragment_menu">
-        <action
-            android:id="@+id/nav_home_to_content"
-            app:destination="@id/nav_content"
-            app:popUpTo="@id/nav_home" />
+        <argument
+            android:name="username"
+            app:argType="string"
+             />
         <action
             android:id="@+id/nav_home_to_chromatic_tuner"
             app:destination="@id/nav_chromatic_tuner"
             app:popUpTo="@id/nav_home" />
         <action
-            android:id="@+id/nv_home_to_metronome"
+            android:id="@+id/nav_home_to_metronome"
             app:destination="@id/nav_metronome"
+            app:popUpTo="@id/nav_home" />
+        <action
+            android:id="@+id/nav_home_to_tabs"
+            app:destination="@id/nav_tabs"
             app:popUpTo="@id/nav_home" />
     </fragment>
 
@@ -72,4 +87,5 @@
         android:name="edu.msudenver.cs3013.project01.MetronomeFragment"
         android:label="Metronome"
         tools:layout="@layout/fragment_metronome" />
+
 </navigation>
