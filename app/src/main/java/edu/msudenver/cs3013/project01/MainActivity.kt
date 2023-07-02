@@ -9,11 +9,14 @@ import androidx.navigation.findNavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.*;
 import com.google.android.material.navigation.NavigationView;
+import androidx.appcompat.widget.Toolbar
+
 
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,25 +26,46 @@ class MainActivity : AppCompatActivity() {
 //        val userName = intent.getStringExtra(USER_NAME_KEY)
         val  userName = "fredooo"
         val bundle = Bundle()
-        bundle.putString("userName", userName)
-// Use the userName variable as needed
+        bundle.putString(USER_NAME_KEY, userName)
+
 
 
         setSupportActionBar(findViewById(R.id.toolbar))
+        drawerLayout = findViewById(R.id.drawer_layout)
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        navController.setGraph(R.navigation.mobile_navigation, bundle)
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_recent, R.id.nav_favorites,
+                R.id.nav_recent, R.id.nav_favorites,
                 R.id.nav_archive, R.id.nav_bin, R.id.nav_menu
             ),
-            findViewById(R.id.drawer_layout)
+            drawerLayout
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
-        findViewById<NavigationView>(R.id.nav_view)?.setupWithNavController(navController)
+
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        navigationView.setupWithNavController(navController)
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            menuItem.isChecked = true
+            drawerLayout.closeDrawers()
+
+            // Navigate to the selected destination
+            when (menuItem.itemId) {
+                R.id.nav_chromatic_tuner -> navController.navigate(R.id.nav_chromatic_tuner)
+                R.id.nav_metronome -> navController.navigate(R.id.nav_metronome)
+                R.id.nav_archive -> navController.navigate(R.id.nav_archive)
+                R.id.nav_bin -> navController.navigate(R.id.nav_bin)
+                R.id.nav_menu -> navController.navigate(R.id.nav_menu)
+                // Add more cases for other menu items
+            }
+
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -49,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp();
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.drawer_menu, menu)
+        menuInflater.inflate(R.menu.main, menu)
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_menu"
+    app:menu="@menu/drawer_menu"
     app:defaultNavHost="true">
 
 
@@ -26,19 +27,20 @@
         <argument
             android:name="username"
             app:argType="string"
+            android:defaultValue="@null" />
              />
         <action
             android:id="@+id/nav_home_to_chromatic_tuner"
             app:destination="@id/nav_chromatic_tuner"
-            app:popUpTo="@id/nav_home" />
+            app:popUpTo="@id/nav_menu" />
         <action
             android:id="@+id/nav_home_to_metronome"
             app:destination="@id/nav_metronome"
-            app:popUpTo="@id/nav_home" />
+            app:popUpTo="@id/nav_menu" />
         <action
             android:id="@+id/nav_home_to_tabs"
             app:destination="@id/nav_tabs"
-            app:popUpTo="@id/nav_home" />
+            app:popUpTo="@id/nav_menu" />
     </fragment>
 
     <fragment
@@ -82,6 +84,7 @@
         android:name="edu.msudenver.cs3013.project01.ChromaticTunerFragment"
         android:label="Chromatic Tuner"
         tools:layout="@layout/fragment_chromatic_tuner" />
+
     <fragment
         android:id="@+id/nav_metronome"
         android:name="edu.msudenver.cs3013.project01.MetronomeFragment"

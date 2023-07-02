@@ -33,8 +33,8 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val username = arguments?.getString(USER_NAME_KEY)
-        val username = "fredo"
+        val username = arguments?.getString(USER_NAME_KEY)
+        //val username = "fredo"
 
         val loggedInMessage = getString(R.string.constant_log_in, username)
         loggedInText = view.findViewById(R.id.logged_in_text)
