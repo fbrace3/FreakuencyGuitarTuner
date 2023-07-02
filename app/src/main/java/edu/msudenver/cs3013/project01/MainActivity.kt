@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_recent, R.id.nav_favorites,
-                R.id.nav_archive, R.id.nav_bin
+                R.id.nav_archive, R.id.nav_bin, R.id.nav_menu
             ),
             findViewById(R.id.drawer_layout)
         )
