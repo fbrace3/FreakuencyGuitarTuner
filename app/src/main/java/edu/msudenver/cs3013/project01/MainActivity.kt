@@ -10,13 +10,13 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.*;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.widget.Toolbar
-
-
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
 
 //        val intent = intent
 //        val userName = intent.getStringExtra(USER_NAME_KEY)
-        val  userName = "fredooo"
-        val bundle = Bundle()
-        bundle.putString(USER_NAME_KEY, userName)
+//        val  userName = "fredooo"
+//        val bundle = Bundle()
+//        bundle.putString(USER_NAME_KEY, userName)
 
 
 
@@ -49,6 +49,9 @@ class MainActivity : AppCompatActivity() {
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setupWithNavController(navController)
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view)
+        bottomNavigationView.setupWithNavController(navController)
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             menuItem.isChecked = true

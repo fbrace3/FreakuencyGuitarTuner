@@ -8,15 +8,15 @@
 
     <!-- Background Image -->
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/loginbackground"
-        android:scaleType="centerCrop"
+        android:layout_width="500dp"
+        android:layout_height="800dp"
         android:contentDescription="Background Image"
-        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loginbackground"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/header"
@@ -26,11 +26,11 @@
         android:layout_height="wrap_content"
         android:text="@string/header_text"
         android:textSize="24sp"
-    android:textColor="#FFFFFF"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:text="Please enter your username and password below to login:" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Please enter your username and password below to login:" />
 
     <EditText
         android:id="@+id/user_name"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/password"
+
         tools:text="Enter your username:" />
 
     <EditText
@@ -58,26 +58,24 @@
         app:layout_constraintTop_toBottomOf="@id/user_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/submit_button"
         tools:text="Enter your password:" />
 
     <Button
         android:id="@+id/submit_button"
-
-        android:layout_width="match_parent"
-    android:layout_height="140dp"
-    android:text="@string/submit_button_text"
-    android:textColor="#FFFFFF"
-    app:layout_constraintTop_toBottomOf="@id/password"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintVertical_bias="0.5"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
-    android:textSize="18sp"
+        style="@style/edit_text_login"
+        android:layout_width="350dp"
+        android:layout_height="120dp"
+        android:text="@string/submit_button_text"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="18sp"
         tools:text="SUBMIT" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
