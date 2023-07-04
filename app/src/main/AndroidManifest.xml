@@ -17,6 +17,7 @@
             android:name=".TabsDetailActivity"
             android:exported="false" />
         <activity
+            android:id="@+id/tab_activity"
             android:name=".TabsActivity"
             android:exported="false" />
         <activity

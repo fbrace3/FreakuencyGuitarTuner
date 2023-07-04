@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        val intent = intent
-//        val userName = intent.getStringExtra(USER_NAME_KEY)
-//        val  userName = "fredooo"
-//        val bundle = Bundle()
-//        bundle.putString(USER_NAME_KEY, userName)
+        //val userName = intent.getStringExtra(USER_NAME_KEY)
+        val  userName = "fredo"
+        val bundle = Bundle()
+        bundle.putString(USER_NAME_KEY, userName)
 
 
 
@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
+        navHostFragment.navController.setGraph(navHostFragment.navController.graph, bundle)
+
 
         appBarConfiguration = AppBarConfiguration(
             setOf(

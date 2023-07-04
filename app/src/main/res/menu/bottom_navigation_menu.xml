@@ -20,7 +20,7 @@
         android:title="Metronome"
         android:icon="@drawable/recent" />
     <item
-        android:id="@+id/menu_tabs"
+        android:id="@+id/tabs_list"
         android:title="Tabs"
         android:icon="@drawable/tabs" />
 </menu>

@@ -27,8 +27,7 @@
         <argument
             android:name="username"
             app:argType="string"
-            android:defaultValue="@null" />
-             />
+            />
         <action
             android:id="@+id/nav_home_to_chromatic_tuner"
             app:destination="@id/nav_chromatic_tuner"
@@ -39,7 +38,7 @@
             app:popUpTo="@id/nav_menu" />
         <action
             android:id="@+id/nav_home_to_tabs"
-            app:destination="@id/nav_tabs"
+            app:destination="@id/tab_activity"
             app:popUpTo="@id/nav_menu" />
     </fragment>
 
@@ -91,4 +90,36 @@
         android:label="Metronome"
         tools:layout="@layout/fragment_metronome" />
 
+    <activity
+        android:id="@+id/tab_activity"
+        android:name="edu.msudenver.cs3013.project01.TabsActivity"
+        android:label="Tabs"
+        tools:layout="@layout/activity_tabs" />
+
+    <activity
+        android:id="@+id/nav_login"
+        android:name="edu.msudenver.cs3013.project01.LoginActivity"
+        android:label="Login"
+        tools:layout="@layout/activity_login" />
+
+    <activity
+        android:id="@+id/nav_Welcome"
+        android:name="edu.msudenver.cs3013.project01.WelcomeActivity"
+        android:label="Register"
+        tools:layout="@layout/activity_welcome" />
+
+    <activity
+        android:id="@+id/nav_main"
+        android:name="edu.msudenver.cs3013.project01.MainActivity"
+        android:label="Register"
+        tools:layout="@layout/activity_main" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            />
+    <activity
+        android:id="@+id/nav_tabs_activity"
+        android:name="edu.msudenver.cs3013.project01.TabsActivity"
+        android:label="Register"
+        tools:layout="@layout/activity_tabs" />
 </navigation>

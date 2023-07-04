@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.github.barteksc.pdfviewer.PDFView
 
 
@@ -30,6 +31,12 @@ class TabsDetailsFragment : Fragment() {
     private val pdfView: PDFView?
         get() = view?.findViewById(R.id.pdf_viewer)
 
+    private val backButton: View?
+        get() = view?.findViewById(R.id.btnTabs)
+
+    private val menuButton: View?
+        get() = view?.findViewById(R.id.btnMainMenu)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,45 +57,90 @@ class TabsDetailsFragment : Fragment() {
         setTabData(arguments?.getInt("tabId") ?: 0)
 
         // Load the PDF file from a URL or local file path
-        val pdfFileName = "rockytop.pdf"
-        val assetPath = "file:///android_asset/$pdfFileName"
-        pdfView?.fromAsset(pdfFileName)
-            ?.defaultPage(0)
-            ?.onError { throwable -> Toast.makeText(context, "Error loading PDF: ${throwable.message}", Toast.LENGTH_SHORT).show() }
-                ?.load()
-            }
+
+        backButton?.setOnClickListener {
+            findNavController().navigate(R.id.nav_tabs_activity)
+        }
+
+        menuButton?.setOnClickListener {
+            findNavController().navigate(R.id.nav_main)
+        }
+
+    }
 
         fun setTabData(tabId: Int) {
             //Some text below should in production be string resources, done as hardcoded text here for simplicity
             when (tabId) {
                 R.id.RockyTop -> {
                     tabName?.text = getString(R.string.tab1)
-
+                    val pdfFileName = "rockytop.pdf"
+                    val assetPath = "file:///android_asset/$pdfFileName"
+                    pdfView?.fromAsset(pdfFileName)
+                        ?.defaultPage(0)
+                        ?.onError { throwable ->
+                            Toast.makeText(
+                                context,
+                                "Error loading PDF: ${throwable.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        ?.load()
 
                 }
 
                 R.id.SweetHomeAlabama -> {
                     tabName?.text = getString(R.string.tab2)
-//                symbol?.text = getString(R.string.symbol, "Fish")
-//                dateRange?.text = getString(R.string.date_range, "February 19 - March 20")
+                val pdfFileName = "sweethomealabama.pdf"
+                    val assetPath = "file:///android_asset/$pdfFileName"
+                    pdfView?.fromAsset(pdfFileName)
+                        ?.defaultPage(0)
+                        ?.onError { throwable ->
+                            Toast.makeText(
+                                context,
+                                "Error loading PDF: ${throwable.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        ?.load()
                 }
 
                 R.id.WagonWheel -> {
                     tabName?.text = getString(R.string.tab3)
-//                symbol?.text = getString(R.string.symbol, "Ram")
-//                dateRange?.text = getString(R.string.date_range, "March 21 - April 19")
+                    val pdfFileName = "wagonwheel.pdf"
+                    val assetPath = "file:///android_asset/$pdfFileName"
+                    pdfView?.fromAsset(pdfFileName)
+                        ?.defaultPage(0)
+                        ?.onError { throwable ->
+                            Toast.makeText(
+                                context,
+                                "Error loading PDF: ${throwable.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        ?.load()
+
                 }
 
                 R.id.SaltCreek -> {
                     tabName?.text = getString(R.string.tab4)
-//                symbol?.text = getString(R.string.symbol, "Bull")
-//                dateRange?.text = getString(R.string.date_range, "April 20 - May 20")
+                    val pdfFileName = "saltcreek.pdf"
+                    val assetPath = "file:///android_asset/$pdfFileName"
+                    pdfView?.fromAsset(pdfFileName)
+                        ?.defaultPage(0)
+                        ?.onError { throwable ->
+                            Toast.makeText(
+                                context,
+                                "Error loading PDF: ${throwable.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        ?.load()
                 }
 
-                else -> {
-                    Toast.makeText(context, getString(R.string.unknown_tab), Toast.LENGTH_LONG)
-                        .show()
-                }
+//                else -> {
+//                    Toast.makeText(context, getString(R.string.unknown_tab), Toast.LENGTH_LONG)
+//                        .show()
+//                }
             }
         }
     }

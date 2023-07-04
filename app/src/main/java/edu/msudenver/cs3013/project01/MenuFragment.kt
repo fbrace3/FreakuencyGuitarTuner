@@ -12,7 +12,7 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import android.util.Log
-
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 
 
 class MenuFragment : Fragment() {
@@ -27,15 +27,17 @@ class MenuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val username = arguments?.getString(USER_NAME_KEY)
-        //val username = "fredo"
 
+        //val username = "fredo"
+        val username = arguments?.getString("username")
         val loggedInMessage = getString(R.string.constant_log_in, username)
         loggedInText = view.findViewById(R.id.logged_in_text)
         loggedInText.text = loggedInMessage
@@ -57,10 +59,14 @@ class MenuFragment : Fragment() {
             navController.navigate(R.id.nav_metronome)
         }
 
+//        tabsButton.setOnClickListener {
+//            val intent = Intent(activity, TabsActivity::class.java)
+//            startActivity(intent)
+//        }
         tabsButton.setOnClickListener {
-            val intent = Intent(activity, TabsActivity::class.java)
-            startActivity(intent)
+            navController.navigate(R.id.nav_home_to_tabs)
         }
+
     }
     companion object {
         const val USER_NAME_KEY = "username"
