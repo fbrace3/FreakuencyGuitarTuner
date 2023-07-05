@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.*;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavArgument
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -28,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         val bundle = Bundle()
         bundle.putString(USER_NAME_KEY, userName)
 
+//        val fragment = SettingFragment()
+//        val bundle1 = Bundle()
+//        bundle1.putString(USER_NAME_KEY, userName)
+//        fragment.arguments = bundle
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.nav_settings, fragment)
+//            .commit()
+
         setSupportActionBar(findViewById(R.id.toolbar))
         drawerLayout = findViewById(R.id.drawer_layout)
 
@@ -44,6 +53,10 @@ class MainActivity : AppCompatActivity() {
             ),
             drawerLayout
         )
+
+        val settingFragment = navController.graph.findNode(R.id.nav_settings)
+        settingFragment?.addArgument("username", NavArgument.Builder().setDefaultValue(userName).build())
+
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 

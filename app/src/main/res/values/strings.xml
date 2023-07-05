@@ -8,7 +8,7 @@
     <string name="favorites">Favorites</string>
     <string name="bin">Bin</string>
     <string name="home_fragment">Home Fragment</string>
-    <string name="settings_fragment">Settings Fragment</string>
+    <string name="settings_fragment">Settings for user %s</string>
     <string name="content_fragment">Content Fragment</string>
     <string name="archive_fragment">Archive Fragment</string>
     <string name="recent_fragment">Recent Fragment</string>
@@ -26,7 +26,7 @@
 
 
     <string name="header_text">Please enter your username and password below to login:</string>
-    <string name="welcome_text">Welcome to Freakuency Tuner \'%s\' we are excited to have you here!</string>
+    <string name="welcome_text">Welcome to Freakuency Tuner \%s\! Take a look around.</string>
     <string name="login_form_entry_error">Please fill in both username and password fields!</string>
     <string name="login_error">Either your user name or password is not recognised! Please try again.</string>
     <string name="username_label">Enter your username:</string>
