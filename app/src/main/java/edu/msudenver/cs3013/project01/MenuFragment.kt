@@ -1,75 +1,60 @@
 package edu.msudenver.cs3013.project01
-
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.view.isVisible
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import android.util.Log
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 class MenuFragment : Fragment() {
-    private lateinit var navController: NavController
     private lateinit var chromaticTunerButton: Button
     private lateinit var metronomeButton: Button
     private lateinit var tabsButton: Button
-
+    private lateinit var standardTunerButton: Button
     private lateinit var loggedInText: TextView
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        //val username = "fredo"
         val username = arguments?.getString("username")
         val loggedInMessage = getString(R.string.constant_log_in, username)
         loggedInText = view.findViewById(R.id.logged_in_text)
         loggedInText.text = loggedInMessage
 
-        // Initialize the navigation controller
-        navController = Navigation.findNavController(view)
-
-        // Initialize the buttons
+        standardTunerButton = view.findViewById(R.id.btnStandardTuner)
         chromaticTunerButton = view.findViewById(R.id.btnChromaticTuner)
         metronomeButton = view.findViewById(R.id.btnMetronome)
         tabsButton = view.findViewById(R.id.btnTabs)
 
-        // Set click listeners for the buttons
+        standardTunerButton.setOnClickListener {
+            findNavController().navigate(R.id.nav_standard_tuner)
+        }
+
         chromaticTunerButton.setOnClickListener {
-            navController.navigate(R.id.nav_chromatic_tuner)
+            findNavController().navigate(R.id.nav_chromatic_tuner)
         }
 
         metronomeButton.setOnClickListener {
-            navController.navigate(R.id.nav_metronome)
+            findNavController().navigate(R.id.nav_metronome)
         }
 
-//        tabsButton.setOnClickListener {
-//            val intent = Intent(activity, TabsActivity::class.java)
-//            startActivity(intent)
-//        }
         tabsButton.setOnClickListener {
-            navController.navigate(R.id.nav_home_to_tabs)
+            findNavController().navigate(R.id.nav_home_to_tabs)
         }
-
     }
     companion object {
         const val USER_NAME_KEY = "username"
     }
+
 }
 

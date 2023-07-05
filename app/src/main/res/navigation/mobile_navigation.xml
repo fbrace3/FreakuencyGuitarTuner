@@ -26,8 +26,11 @@
         tools:layout="@layout/fragment_menu">
         <argument
             android:name="username"
-            app:argType="string"
-            />
+            app:argType="string" />
+        <action
+            android:id="@+id/nav_home_to_standard_tuner"
+            app:destination="@id/nav_standard_tuner"
+            app:popUpTo="@id/nav_menu" />
         <action
             android:id="@+id/nav_home_to_chromatic_tuner"
             app:destination="@id/nav_chromatic_tuner"
@@ -40,6 +43,7 @@
             android:id="@+id/nav_home_to_tabs"
             app:destination="@id/tab_activity"
             app:popUpTo="@id/nav_menu" />
+
     </fragment>
 
     <fragment
@@ -79,10 +83,29 @@
         tools:layout="@layout/fragment_setting" />
 
     <fragment
+        android:id="@+id/nav_standard_tuner"
+        android:name="edu.msudenver.cs3013.project01.StandardTuner"
+        android:label="Standard Tuner"
+        tools:layout="@layout/fragment_standard_tuner"/>
+
+    <fragment
         android:id="@+id/nav_chromatic_tuner"
         android:name="edu.msudenver.cs3013.project01.ChromaticTunerFragment"
         android:label="Chromatic Tuner"
         tools:layout="@layout/fragment_chromatic_tuner" />
+
+    <fragment
+        android:id="@+id/nav_tabs_details_fragment"
+        android:name="edu.msudenver.cs3013.project01.TabsDetailsFragment"
+        android:label="Tab Details"
+        tools:layout="@layout/fragment_tabs_details"/>
+    <fragment
+        android:id="@+id/nav_tabs_list_fragment"
+        android:name="edu.msudenver.cs3013.project01.TabsListFragment"
+        android:label="Tab List"
+        tools:layout="@layout/fragment_tabs_list"/>
+
+
 
     <fragment
         android:id="@+id/nav_metronome"
@@ -95,6 +118,11 @@
         android:name="edu.msudenver.cs3013.project01.TabsActivity"
         android:label="Tabs"
         tools:layout="@layout/activity_tabs" />
+    <activity
+        android:id="@+id/tab_detail_activity"
+        android:name="edu.msudenver.cs3013.project01.TabsDetailActivity"
+        android:label="Tabs"
+        tools:layout="@layout/activity_tabs_detail" />
 
     <activity
         android:id="@+id/nav_login"
@@ -105,21 +133,20 @@
     <activity
         android:id="@+id/nav_Welcome"
         android:name="edu.msudenver.cs3013.project01.WelcomeActivity"
-        android:label="Register"
-        tools:layout="@layout/activity_welcome" />
+        android:label="Welcome"
+        tools:layout="@layout/activity_welcome" >
+         <argument
+            android:name="username"
+            app:argType="string" />
+        </activity>
 
     <activity
         android:id="@+id/nav_main"
         android:name="edu.msudenver.cs3013.project01.MainActivity"
         android:label="Register"
-        tools:layout="@layout/activity_main" />
+        tools:layout="@layout/activity_main">
         <argument
             android:name="username"
-            app:argType="string"
-            />
-    <activity
-        android:id="@+id/nav_tabs_activity"
-        android:name="edu.msudenver.cs3013.project01.TabsActivity"
-        android:label="Register"
-        tools:layout="@layout/activity_tabs" />
+            app:argType="string" />
+    </activity>
 </navigation>

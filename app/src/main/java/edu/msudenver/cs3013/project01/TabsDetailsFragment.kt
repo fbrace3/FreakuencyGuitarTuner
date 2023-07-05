@@ -1,5 +1,6 @@
 package edu.msudenver.cs3013.project01
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.github.barteksc.pdfviewer.PDFView
 
@@ -26,16 +29,15 @@ class TabsDetailsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
     private val tabName: TextView?
         get() = view?.findViewById(R.id.tab_name)
     private val pdfView: PDFView?
         get() = view?.findViewById(R.id.pdf_viewer)
 
-    private val backButton: View?
-        get() = view?.findViewById(R.id.btnTabs)
+    private val closeButton: View?
+        get() = view?.findViewById(R.id.btnClose)
 
-    private val menuButton: View?
-        get() = view?.findViewById(R.id.btnMainMenu)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,15 +58,13 @@ class TabsDetailsFragment : Fragment() {
         // Set the tab data based on the selected tab ID
         setTabData(arguments?.getInt("tabId") ?: 0)
 
-        // Load the PDF file from a URL or local file path
 
-        backButton?.setOnClickListener {
-            findNavController().navigate(R.id.nav_tabs_activity)
+        closeButton?.setOnClickListener {
+            val intent = Intent(requireContext(), TabsActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
 
-        menuButton?.setOnClickListener {
-            findNavController().navigate(R.id.nav_main)
-        }
 
     }
 
@@ -74,7 +74,6 @@ class TabsDetailsFragment : Fragment() {
                 R.id.RockyTop -> {
                     tabName?.text = getString(R.string.tab1)
                     val pdfFileName = "rockytop.pdf"
-                    val assetPath = "file:///android_asset/$pdfFileName"
                     pdfView?.fromAsset(pdfFileName)
                         ?.defaultPage(0)
                         ?.onError { throwable ->
@@ -91,7 +90,6 @@ class TabsDetailsFragment : Fragment() {
                 R.id.SweetHomeAlabama -> {
                     tabName?.text = getString(R.string.tab2)
                 val pdfFileName = "sweethomealabama.pdf"
-                    val assetPath = "file:///android_asset/$pdfFileName"
                     pdfView?.fromAsset(pdfFileName)
                         ?.defaultPage(0)
                         ?.onError { throwable ->
@@ -107,7 +105,6 @@ class TabsDetailsFragment : Fragment() {
                 R.id.WagonWheel -> {
                     tabName?.text = getString(R.string.tab3)
                     val pdfFileName = "wagonwheel.pdf"
-                    val assetPath = "file:///android_asset/$pdfFileName"
                     pdfView?.fromAsset(pdfFileName)
                         ?.defaultPage(0)
                         ?.onError { throwable ->
@@ -124,7 +121,6 @@ class TabsDetailsFragment : Fragment() {
                 R.id.SaltCreek -> {
                     tabName?.text = getString(R.string.tab4)
                     val pdfFileName = "saltcreek.pdf"
-                    val assetPath = "file:///android_asset/$pdfFileName"
                     pdfView?.fromAsset(pdfFileName)
                         ?.defaultPage(0)
                         ?.onError { throwable ->

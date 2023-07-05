@@ -35,8 +35,12 @@ class ChromaticTunerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_chromatic_tuner, container, false)
+        val view = inflater.inflate(R.layout.fragment_chromatic_tuner, container, false)
+        backButton = view.findViewById(R.id.btnBack)
+        backButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+        return view
 
 
         }
@@ -75,16 +79,7 @@ class ChromaticTunerFragment : Fragment() {
             "A#" to soundPool.load(requireContext(), R.raw.a_sharp_note, 1),
             "B" to soundPool.load(requireContext(), R.raw.b_note, 1)
         )
-
-        soundPool.setOnLoadCompleteListener { soundPool, sampleId, status ->
-            if (status == 0) {
-                // Sound loaded successfully
-                // You can perform any additional actions here if needed
-            } else {
-                // Failed to load sound
-                // You can handle the error here if needed
-            }
-        }
+        
     }
 
 
@@ -148,12 +143,5 @@ class ChromaticTunerFragment : Fragment() {
         }
     }
 
-    private fun getSoundResource(note: String): Int? {
-        val resourceName = note.toLowerCase(Locale.ROOT)
-            .replace("#", "_sharp")
-            .plus("_note")
 
-        val resId = resources.getIdentifier(resourceName, "raw", requireContext().packageName)
-        return if (resId != 0) resId else null
-    }
 }

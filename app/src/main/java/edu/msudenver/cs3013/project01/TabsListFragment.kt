@@ -1,6 +1,7 @@
 package edu.msudenver.cs3013.project01
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,6 +25,11 @@ class TabsListFragment : Fragment(), View.OnClickListener {
     private var param2: String? = null
 
     private lateinit var tabsListener: TabsListener
+
+    private val mainMenuButton: View?
+        get() = view?.findViewById(R.id.btnMainMenu)
+
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is TabsListener) {
@@ -51,14 +57,20 @@ class TabsListFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState:Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val starSigns = listOf<View>(
+        mainMenuButton?.setOnClickListener {
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
+        val tabs = listOf<View>(
             view.findViewById(R.id.RockyTop),
             view.findViewById(R.id.SweetHomeAlabama),
             view.findViewById(R.id.WagonWheel),
             view.findViewById(R.id.SaltCreek),
 
         )
-        starSigns.forEach {
+        tabs.forEach {
             it.setOnClickListener(this)
         }
     }

@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_recent, R.id.nav_favorites,
-                R.id.nav_archive, R.id.nav_bin, R.id.nav_menu
+                R.id.nav_archive, R.id.nav_bin, R.id.nav_menu, R.id.nav_chromatic_tuner, R.id.nav_metronome, R.id.tab_activity, R.id.nav_standard_tuner
             ),
             drawerLayout
         )
@@ -61,16 +61,19 @@ class MainActivity : AppCompatActivity() {
 
             // Navigate to the selected destination
             when (menuItem.itemId) {
+                R.id.nav_menu -> navController.navigate(R.id.nav_menu)
+                R.id.nav_standard_tuner -> navController.navigate(R.id.nav_standard_tuner)
                 R.id.nav_chromatic_tuner -> navController.navigate(R.id.nav_chromatic_tuner)
                 R.id.nav_metronome -> navController.navigate(R.id.nav_metronome)
                 R.id.nav_archive -> navController.navigate(R.id.nav_archive)
                 R.id.nav_bin -> navController.navigate(R.id.nav_bin)
-                R.id.nav_menu -> navController.navigate(R.id.nav_menu)
+                R.id.tab_activity -> navController.navigate(R.id.tab_activity)
                 // Add more cases for other menu items
             }
 
             true
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
