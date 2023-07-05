@@ -41,7 +41,7 @@ class WelcomeActivity : AppCompatActivity() {
                 continueButton.setOnClickListener{
                     Intent(this, MainActivity::class.java).also { mainIntent ->
                         //Add the data
-                        mainIntent.putExtra(USER_NAME_KEY, userNameForm)
+                        mainIntent.putExtra(MainActivity.USER_NAME_KEY, userNameForm)
 
                         startActivity(mainIntent)
                     }}

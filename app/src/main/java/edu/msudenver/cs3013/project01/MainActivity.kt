@@ -22,27 +22,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val intent = intent
-        //val userName = intent.getStringExtra(USER_NAME_KEY)
-        val  userName = "fredo"
+        //val userName = "fredo"
+
+        val userName = intent.getStringExtra(USER_NAME_KEY)
         val bundle = Bundle()
         bundle.putString(USER_NAME_KEY, userName)
-
-
 
         setSupportActionBar(findViewById(R.id.toolbar))
         drawerLayout = findViewById(R.id.drawer_layout)
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        navHostFragment.navController.setGraph(navHostFragment.navController.graph, bundle)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController // Obtain the navController instance
+
+        //navController.setGraph(navController.graph, bundle) // Set the bundle to the navController's graph
+        navController.navigate(R.id.nav_menu, bundle)
 
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_recent, R.id.nav_favorites,
-                R.id.nav_archive, R.id.nav_bin, R.id.nav_menu, R.id.nav_chromatic_tuner, R.id.nav_metronome, R.id.tab_activity, R.id.nav_standard_tuner
+                R.id.nav_menu, R.id.nav_chromatic_tuner, R.id.nav_metronome, R.id.tab_activity, R.id.nav_standard_tuner
             ),
             drawerLayout
         )
@@ -65,8 +63,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_standard_tuner -> navController.navigate(R.id.nav_standard_tuner)
                 R.id.nav_chromatic_tuner -> navController.navigate(R.id.nav_chromatic_tuner)
                 R.id.nav_metronome -> navController.navigate(R.id.nav_metronome)
-                R.id.nav_archive -> navController.navigate(R.id.nav_archive)
-                R.id.nav_bin -> navController.navigate(R.id.nav_bin)
                 R.id.tab_activity -> navController.navigate(R.id.tab_activity)
                 // Add more cases for other menu items
             }

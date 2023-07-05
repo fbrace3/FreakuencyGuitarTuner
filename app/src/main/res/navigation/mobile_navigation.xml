@@ -52,29 +52,6 @@
         android:label="@string/content"
         tools:layout="@layout/fragment_content" />
 
-    <fragment
-        android:id="@+id/nav_recent"
-        android:name="edu.msudenver.cs3013.project01.RecentFragment"
-        android:label="@string/recent"
-        tools:layout="@layout/fragment_recent" />
-
-    <fragment
-        android:id="@+id/nav_favorites"
-        android:name="edu.msudenver.cs3013.project01.FavoritesFragment"
-        android:label="@string/favorites"
-        tools:layout="@layout/fragment_favorites" />
-
-    <fragment
-        android:id="@+id/nav_archive"
-        android:name="edu.msudenver.cs3013.project01.ArchiveFragment"
-        android:label="@string/archive"
-        tools:layout="@layout/fragment_archive" />
-
-    <fragment
-        android:id="@+id/nav_bin"
-        android:name="edu.msudenver.cs3013.project01.BinFragment"
-        android:label="@string/bin"
-        tools:layout="@layout/fragment_archive" />
 
     <fragment
         android:id="@+id/nav_settings"
@@ -138,6 +115,11 @@
          <argument
             android:name="username"
             app:argType="string" />
+<!--        <action-->
+<!--            android:id="@+id/nav_Welcome_to_main"-->
+<!--            app:destination="@id/nav_main"-->
+<!--            app:popUpTo="@+id/nav_Welcome"-->
+<!--            app:popUpToInclusive="true" />-->
         </activity>
 
     <activity
@@ -148,5 +130,6 @@
         <argument
             android:name="username"
             app:argType="string" />
+
     </activity>
 </navigation>

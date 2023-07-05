@@ -1,4 +1,5 @@
 package edu.msudenver.cs3013.project01
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,21 +16,33 @@ class MenuFragment : Fragment() {
     private lateinit var standardTunerButton: Button
     private lateinit var loggedInText: TextView
 
+    private var username: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_menu, container, false)
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_menu, container, false)
+
+        // Retrieve the username argument
+        username = arguments?.getString(USER_NAME_KEY)
+        //username = "fredd"
+        // Perform any necessary initialization or UI updates with the username
+        val loggedInMessage = getString(R.string.constant_log_in, username)
+        loggedInText = view.findViewById(R.id.logged_in_text)
+        loggedInText.text = loggedInMessage
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val username = arguments?.getString("username")
-        val loggedInMessage = getString(R.string.constant_log_in, username)
-        loggedInText = view.findViewById(R.id.logged_in_text)
-        loggedInText.text = loggedInMessage
+        // Retrieve the username argument
+        //username = arguments?.getString(USER_NAME_KEY)
+
+
 
         standardTunerButton = view.findViewById(R.id.btnStandardTuner)
         chromaticTunerButton = view.findViewById(R.id.btnChromaticTuner)
@@ -52,9 +65,8 @@ class MenuFragment : Fragment() {
             findNavController().navigate(R.id.nav_home_to_tabs)
         }
     }
+
     companion object {
         const val USER_NAME_KEY = "username"
     }
-
 }
-
