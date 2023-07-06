@@ -27,22 +27,22 @@
         <argument
             android:name="username"
             app:argType="string" />
-        <action
-            android:id="@+id/nav_home_to_standard_tuner"
-            app:destination="@id/nav_standard_tuner"
-            app:popUpTo="@id/nav_menu" />
-        <action
-            android:id="@+id/nav_home_to_chromatic_tuner"
-            app:destination="@id/nav_chromatic_tuner"
-            app:popUpTo="@id/nav_menu" />
-        <action
-            android:id="@+id/nav_home_to_metronome"
-            app:destination="@id/nav_metronome"
-            app:popUpTo="@id/nav_menu" />
-        <action
-            android:id="@+id/nav_home_to_tabs"
-            app:destination="@id/tab_activity"
-            app:popUpTo="@id/nav_menu" />
+<!--        <action-->
+<!--            android:id="@+id/nav_home_to_standard_tuner"-->
+<!--            app:destination="@id/nav_standard_tuner"-->
+<!--            app:popUpTo="@id/nav_menu" />-->
+<!--        <action-->
+<!--            android:id="@+id/nav_home_to_chromatic_tuner"-->
+<!--            app:destination="@id/nav_chromatic_tuner"-->
+<!--            app:popUpTo="@id/nav_menu" />-->
+<!--        <action-->
+<!--            android:id="@+id/nav_home_to_metronome"-->
+<!--            app:destination="@id/nav_metronome"-->
+<!--            app:popUpTo="@id/nav_menu" />-->
+<!--        <action-->
+<!--            android:id="@+id/nav_home_to_tabs"-->
+<!--            app:destination="@id/tab_activity"-->
+<!--            app:popUpTo="@id/nav_menu" />-->
 
     </fragment>
 
@@ -84,7 +84,15 @@
         android:id="@+id/nav_tabs_list_fragment"
         android:name="edu.msudenver.cs3013.project01.TabsListFragment"
         android:label="Tab List"
-        tools:layout="@layout/fragment_tabs_list"/>
+        tools:layout="@layout/fragment_tabs_list">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <action
+            android:id="@+id/nav_tabs_list_to_main_activity"
+            app:destination="@id/nav_main"
+            app:popUpTo="@id/nav_tabs_list_fragment" />
+    </fragment>
 
 
 
@@ -94,11 +102,28 @@
         android:label="Metronome"
         tools:layout="@layout/fragment_metronome" />
 
+    <fragment
+        android:id="@+id/nav_resources"
+        android:name="edu.msudenver.cs3013.project01.ResourcesFragment"
+        android:label="Resources"
+        tools:layout="@layout/fragment_resources" />
+    <fragment
+        android:id="@+id/nav_shopping"
+        android:name="edu.msudenver.cs3013.project01.ShoppingFragment"
+        android:label="Shopping"
+        tools:layout="@layout/fragment_shopping" />
+
     <activity
         android:id="@+id/tab_activity"
         android:name="edu.msudenver.cs3013.project01.TabsActivity"
         android:label="Tabs"
-        tools:layout="@layout/activity_tabs" />
+        tools:layout="@layout/activity_tabs" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </activity>
+
+
     <activity
         android:id="@+id/tab_detail_activity"
         android:name="edu.msudenver.cs3013.project01.TabsDetailActivity"

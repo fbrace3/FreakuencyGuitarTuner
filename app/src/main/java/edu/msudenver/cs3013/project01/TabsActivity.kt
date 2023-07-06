@@ -12,6 +12,17 @@ class TabsActivity : AppCompatActivity(), TabsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabs)
+
+        //val userName = intent.getStringExtra(USER_NAME_KEY)
+        val userName = "ffrreedd"
+        //val userName = arguments?.getString("username")
+
+        val bundle = Bundle()
+        bundle.putString(USER_NAME_KEY, userName)
+
+        val tabsListFragment = TabsListFragment()
+        tabsListFragment.arguments = bundle
+
         isDualPane = findViewById<View>(R.id.tabs_list) != null
     }
 
@@ -36,5 +47,7 @@ class TabsActivity : AppCompatActivity(), TabsListener {
             startActivity(detailIntent)
         }
     }
-
+    companion object {
+        const val USER_NAME_KEY = "username"
+    }
 }

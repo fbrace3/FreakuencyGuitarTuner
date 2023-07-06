@@ -15,6 +15,8 @@ class MenuFragment : Fragment() {
     private lateinit var tabsButton: Button
     private lateinit var standardTunerButton: Button
     private lateinit var loggedInText: TextView
+    private lateinit var shoppingButton: Button
+    private lateinit var resourcesButton: Button
 
     private var username: String? = null
 
@@ -48,6 +50,8 @@ class MenuFragment : Fragment() {
         chromaticTunerButton = view.findViewById(R.id.btnChromaticTuner)
         metronomeButton = view.findViewById(R.id.btnMetronome)
         tabsButton = view.findViewById(R.id.btnTabs)
+        resourcesButton = view.findViewById(R.id.btnResources)
+        shoppingButton = view.findViewById(R.id.btnShopping)
 
         standardTunerButton.setOnClickListener {
             findNavController().navigate(R.id.nav_standard_tuner)
@@ -62,7 +66,13 @@ class MenuFragment : Fragment() {
         }
 
         tabsButton.setOnClickListener {
-            findNavController().navigate(R.id.nav_home_to_tabs)
+            findNavController().navigate(R.id.tab_activity)
+        }
+        resourcesButton.setOnClickListener {
+            findNavController().navigate(R.id.nav_resources)
+        }
+        shoppingButton.setOnClickListener {
+            findNavController().navigate(R.id.nav_shopping)
         }
     }
 
