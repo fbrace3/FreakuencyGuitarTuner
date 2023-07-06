@@ -14,8 +14,13 @@
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:src="@drawable/angle_circle_up_icon" />
-
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:text="Start"/>
     <TextView
+        android:id="@+id/note_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
