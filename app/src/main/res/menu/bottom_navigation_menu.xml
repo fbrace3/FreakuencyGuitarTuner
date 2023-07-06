@@ -11,16 +11,20 @@
         android:id="@+id/nav_chromatic_tuner"
         android:title="Chromatic"
         android:icon="@drawable/baseline_music_note_24" />
-    <item
-        android:id="@+id/nav_menu"
-        android:title="Menu"
-        android:icon="@drawable/home" />
+<!--    <item-->
+<!--        android:id="@+id/nav_menu"-->
+<!--        android:title="Menu"-->
+<!--        android:icon="@drawable/home" />-->
     <item
         android:id="@+id/nav_metronome"
         android:title="Metronome"
         android:icon="@drawable/recent" />
     <item
-        android:id="@+id/tab_activity"
-        android:title="Tabs"
-        android:icon="@drawable/tabs" />
+        android:id="@+id/nav_resources"
+        android:title="Resources"
+        android:icon="@drawable/resources" />
+    <item
+        android:id="@+id/nav_shopping"
+        android:title="Shopping"
+        android:icon="@drawable/shopping" />
 </menu>

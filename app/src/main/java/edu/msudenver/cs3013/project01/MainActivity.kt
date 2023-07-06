@@ -1,7 +1,9 @@
 package edu.msudenver.cs3013.project01;
+import android.content.Intent
 import android.os.Bundle;
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -23,19 +25,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //val userName = "fredo"
 
         val userName = intent.getStringExtra(USER_NAME_KEY)
         val bundle = Bundle()
         bundle.putString(USER_NAME_KEY, userName)
 
-//        val fragment = SettingFragment()
-//        val bundle1 = Bundle()
-//        bundle1.putString(USER_NAME_KEY, userName)
-//        fragment.arguments = bundle
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.nav_settings, fragment)
-//            .commit()
 
         setSupportActionBar(findViewById(R.id.toolbar))
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -43,8 +37,23 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController // Obtain the navController instance
 
+
+        // Check if there is an incoming intent
+        val fromFragment = intent.getStringExtra("FROM_TABS")
+
+        if (fromFragment == "TabsListFragment") {
+            // The intent came from TabsListFragment
+            Toast.makeText(this, "ListFragment", Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.nav_menu, bundle)
+        } else {
+            // The intent came from a different fragment
+            Toast.makeText(this, "NotTabListFragment", Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.nav_menu, bundle)
+        }
+
+
         //navController.setGraph(navController.graph, bundle) // Set the bundle to the navController's graph
-        navController.navigate(R.id.nav_menu, bundle)
+
 
 
         appBarConfiguration = AppBarConfiguration(
@@ -57,14 +66,20 @@ class MainActivity : AppCompatActivity() {
         val settingFragment = navController.graph.findNode(R.id.nav_settings)
         settingFragment?.addArgument("username", NavArgument.Builder().setDefaultValue(userName).build())
 
+        val tabActivity = navController.graph.findNode(R.id.tab_activity)
+        tabActivity?.addArgument("username", NavArgument.Builder().setDefaultValue(userName).build())
+
+
+
 
         setupActionBarWithNavController(navController, appBarConfiguration)
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view)
+        bottomNavigationView.setupWithNavController(navController)
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setupWithNavController(navController)
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation_view)
-        bottomNavigationView.setupWithNavController(navController)
+
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             menuItem.isChecked = true
@@ -77,6 +92,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_chromatic_tuner -> navController.navigate(R.id.nav_chromatic_tuner)
                 R.id.nav_metronome -> navController.navigate(R.id.nav_metronome)
                 R.id.tab_activity -> navController.navigate(R.id.tab_activity)
+                R.id.nav_shopping -> navController.navigate(R.id.nav_shopping)
+                R.id.nav_resources -> navController.navigate(R.id.nav_resources)
                 // Add more cases for other menu items
             }
 

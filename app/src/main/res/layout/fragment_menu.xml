@@ -79,6 +79,20 @@
             android:gravity="center"
             android:text="Tabs" />
 
+        <Button
+            android:id="@+id/btnResources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Resources" />
+
+        <Button
+            android:id="@+id/btnShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Shopping" />
+
     </LinearLayout>
 
 </RelativeLayout>
