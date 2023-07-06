@@ -1,28 +1,28 @@
 package edu.msudenver.cs3013.project01
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.media.AudioRecord
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import be.tarsos.dsp.AudioDispatcher
-import be.tarsos.dsp.io.jvm.AudioDispatcherFactory
-import android.Manifest
-import android.annotation.SuppressLint
-import android.media.AudioFormat
-import android.media.AudioRecord
-import android.media.MediaRecorder
-import android.util.Log
 import androidx.core.app.ActivityCompat
-import be.tarsos.dsp.AudioEvent
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import be.tarsos.dsp.AudioProcessor
+import be.tarsos.dsp.io.jvm.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
-import be.tarsos.dsp.pitch.PitchDetectionResult
 import be.tarsos.dsp.pitch.PitchProcessor
+import be.tarsos.dsp.pitch.PitchProcessor.PitchEstimationAlgorithm
+import org.apache.commons.math3.transform.DftNormalization
+import org.apache.commons.math3.transform.FastFourierTransformer
+import org.apache.commons.math3.transform.TransformType
+
 
 class StandardTuner : Fragment() {
     private lateinit var noteTextView: TextView
@@ -32,6 +32,7 @@ class StandardTuner : Fragment() {
     private val audioBufferSize = 1024
     private val audioSampleRate = 44100
     private val audioBufferOverlap = 0
+    private var audioBuffer = ShortArray(audioBufferSize)
 
     private val RECORD_AUDIO_PERMISSION_REQUEST_CODE = 200
 
@@ -41,9 +42,8 @@ class StandardTuner : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_standard_tuner, container, false)
 
-        noteTextView = rootView.findViewById(R.id.note_text_view)
-        startButton = rootView.findViewById(R.id.start_button)
-
+        noteTextView = rootView.findViewById(R.id.standardTunerNote)
+        startButton = rootView.findViewById(R.id.startButton)
         startButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     requireContext(),
@@ -56,7 +56,9 @@ class StandardTuner : Fragment() {
                     requireActivity(),
                     arrayOf(Manifest.permission.RECORD_AUDIO),
                     RECORD_AUDIO_PERMISSION_REQUEST_CODE
+
                 )
+
             }
         }
 
@@ -65,54 +67,39 @@ class StandardTuner : Fragment() {
 
     @SuppressLint("MissingPermission")
     private fun startTuner() {
-        audioRecord = AudioRecord(
-            MediaRecorder.AudioSource.DEFAULT,
+        AudioRecord(
+            0,
             audioSampleRate,
-            AudioFormat.CHANNEL_IN_MONO,
-            AudioFormat.ENCODING_PCM_8BIT,
-            audioBufferSize
-        )
-        audioRecord.startRecording()
-
-        val pitchDetectionHandler = PitchDetectionHandler { result: PitchDetectionResult, _: AudioEvent ->
-            val pitchInHz = result.pitch
-            // Logic to determine the note based on the detected pitch
-            //val detectedNote = detectNoteFromPitch(pitchInHz)
-            activity?.runOnUiThread {
-                //TODO
-                noteTextView.text = pitchInHz.toString()
-                Log.d("PITCH", pitchInHz.toString())
-            }
+            16,
+            2,
+            audioBufferSize * 2
+        ).apply {
+            audioRecord = this
+            startRecording()
         }
+        var maxIndex = -1
+        var maxMagnitude = Double.NEGATIVE_INFINITY
 
-        val pitchProcessor = PitchProcessor(
-            PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
-            audioSampleRate.toFloat(),
-            audioBufferSize,
-            pitchDetectionHandler
-        )
+        while (audioRecord.recordingState == AudioRecord.RECORDSTATE_RECORDING) {
+            audioRecord.read(audioBuffer, 0, audioBufferSize)
+            val transformer = FastFourierTransformer(DftNormalization.STANDARD)
+            val doubleBuffer: DoubleArray = audioBuffer.map { it.toDouble() }.toDoubleArray()
+            val magnitude = transformer.transform(doubleBuffer, TransformType.FORWARD)
+
+            for (i in magnitude.indices) {
+                val currentMagnitude = magnitude[i].abs()
+                if (currentMagnitude > maxMagnitude) {
+                    maxMagnitude = currentMagnitude
+                    maxIndex = i
+                }
+            }
+
+// Calculate the frequency using the index and sample rate
+            val sampleRate = 44100.0 // Sample rate of the audio
+            val frequency = maxIndex * sampleRate / magnitude.size
+
+            val frequencyString: String = "%.2f Hz".format(frequency)
+            Log.d("StandardTuner", frequencyString)
+        }
+        }
     }
-}
-//private fun detectNoteFromPitch(pitchInHz: Float): String {
-//    val noteFrequencies = hashMapOf(
-//        "E2" to 82.41f,
-//        "A2" to 110.0f,
-//        "D3" to 146.83f,
-//        "G3" to 196.0f,
-//        "B3" to 246.94f,
-//        "E4" to 329.63f
-//    )
-//
-//    var closestNote = ""
-//    var closestDifference = Float.MAX_VALUE
-//
-//    for ((note, frequency) in noteFrequencies) {
-//        val difference = Math.abs(pitchInHz - frequency)
-//        if (difference < closestDifference) {
-//            closestDifference = difference
-//            closestNote = note
-//        }
-//    }
-//
-//    return closestNote
-//}
