@@ -3,28 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StandardTuner">
+    tools:context=".StandardTuner"
+    >
 
-<<<<<<< HEAD
-    <ImageView
-        android:id="@+id/upArrow"
-        android:paddingTop="130sp"
-        android:layout_width="220sp"
-        android:layout_height="220sp"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/angle_circle_up_icon" />
-    <Button
-        android:id="@+id/start_button"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:text="Start"/>
-    <TextView
-        android:id="@+id/note_text_view"
-=======
+
+
     <TextView
         android:id="@+id/titleText"
->>>>>>> 11ad589a2bd06d243a05be3a2418c0acb3305081
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -34,16 +19,19 @@
         android:textSize="24sp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="32dp"
+        android:textColor="@color/white"
         android:textStyle="bold|italic" />
 
     <ImageView
         android:id="@+id/upArrow"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:layout_below="@id/titleText"
+        android:paddingTop="130sp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/angle_circle_up_icon"
-        android:layout_marginTop="32dp" />
+        android:layout_below="@id/titleText"
+
+        android:src="@drawable/angle_circle_up_icon" />
 
     <TextView
         android:id="@+id/standardTunerNote"
@@ -52,8 +40,9 @@
         android:layout_below="@id/upArrow"
         android:layout_centerHorizontal="true"
         android:text="A"
-        android:textSize="180sp"
-        android:layout_marginTop="0dp" />
+        android:textSize="160sp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"/>
 
     <ImageView
         android:id="@+id/downArrow"
@@ -65,4 +54,11 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="20dp"/>
 
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:text="Start" />
 </RelativeLayout>

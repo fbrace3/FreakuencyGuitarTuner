@@ -41,7 +41,7 @@ class StandardTuner : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_standard_tuner, container, false)
 
-        noteTextView = rootView.findViewById(R.id.note_text_view)
+        noteTextView = rootView.findViewById(R.id.standardTunerNote)
         startButton = rootView.findViewById(R.id.start_button)
 
         startButton.setOnClickListener {

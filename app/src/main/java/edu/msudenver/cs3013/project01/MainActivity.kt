@@ -1,19 +1,17 @@
 package edu.msudenver.cs3013.project01;
 import android.content.Intent
-import android.os.Bundle;
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.findNavController;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.*;
-import com.google.android.material.navigation.NavigationView;
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavArgument
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity : AppCompatActivity() {
@@ -66,10 +64,8 @@ class MainActivity : AppCompatActivity() {
         val settingFragment = navController.graph.findNode(R.id.nav_settings)
         settingFragment?.addArgument("username", NavArgument.Builder().setDefaultValue(userName).build())
 
-        val tabActivity = navController.graph.findNode(R.id.tab_activity)
-        tabActivity?.addArgument("username", NavArgument.Builder().setDefaultValue(userName).build())
-
-
+        val intent = Intent(this, TabsActivity::class.java)
+        intent.putExtra("USER_NAME_KEY", userName)
 
 
         setupActionBarWithNavController(navController, appBarConfiguration)

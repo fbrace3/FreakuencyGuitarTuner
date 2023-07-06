@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TabsDetailsFragment">
+    tools:context=".TabsDetailsFragment"
+    android:textColor="#FFFFFF">
 
     <TextView
         android:id="@+id/tab_name"
@@ -12,6 +13,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
         tools:text="tab_name" />
 
     <com.github.barteksc.pdfviewer.PDFView
