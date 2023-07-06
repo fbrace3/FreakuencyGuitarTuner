@@ -43,7 +43,12 @@ class StandardTuner : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_standard_tuner, container, false)
 
         noteTextView = rootView.findViewById(R.id.standardTunerNote)
+<<<<<<< HEAD
         startButton = rootView.findViewById(R.id.startButton)
+=======
+        startButton = rootView.findViewById(R.id.start_button)
+
+>>>>>>> aa47219351cfc6b342c5ea082b12878990e3837e
         startButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     requireContext(),

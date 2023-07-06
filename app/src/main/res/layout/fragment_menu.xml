@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/logged_in_text"
@@ -8,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="@string/constant_log_in"
         android:textSize="16sp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_margin="9dp"
@@ -26,9 +27,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="#FFFFFF"
             android:text="Freakuency Tuner Menu"
             android:textSize="24sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"
+            tools:text="Freakuency Tuner Menu"/>
 
         <Button
             android:id="@+id/btnStandardTuner"
