@@ -68,9 +68,6 @@ class MainActivity : AppCompatActivity() {
         val settingFragment = navController.graph.findNode(R.id.nav_settings)
         settingFragment?.addArgument("username", NavArgument.Builder().setDefaultValue(userName).build())
 
-//        val intent = Intent(this, TabsActivity::class.java)
-//        intent.putExtra("USER_NAME_KEY", userName)
-
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView = findViewById(R.id.bottom_navigation_view)
