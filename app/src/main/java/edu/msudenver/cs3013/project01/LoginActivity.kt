@@ -42,10 +42,15 @@ class LoginActivity : AppCompatActivity() {
 //        if (userName != null) {
 //            userData.username = userName
 //        }
+        registerButton.setOnClickListener {
+            Intent(this, RegisterActivity::class.java).also { registerIntent ->
+                startActivity(registerIntent)
+            }
+        }
         submitButton.setOnClickListener {
 
-            val userNameForm = userName.text.toString().trim()
-            val passwordForm = password.text.toString().trim()
+            var userNameForm = userName.text.toString().trim()
+            var passwordForm = password.text.toString().trim()
 
             hideKeyboard()
 
@@ -75,11 +80,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
-        registerButton.setOnClickListener {
-            Intent(this, RegisterActivity::class.java).also { registerIntent ->
-                startActivity(registerIntent)
-            }
-        }
+
     }
 
     private fun hideKeyboard() {
