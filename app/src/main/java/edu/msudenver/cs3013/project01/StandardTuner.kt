@@ -62,6 +62,7 @@ class StandardTuner : Fragment() {
                     Manifest.permission.RECORD_AUDIO
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
+
                 startTuner()
             } else {
                 ActivityCompat.requestPermissions(
@@ -81,6 +82,7 @@ class StandardTuner : Fragment() {
     @SuppressLint("MissingPermission")
 
     private fun startTuner() {
+
         audioRecord.startRecording()
 
         val buffer = ShortArray(audioBufferSize)
