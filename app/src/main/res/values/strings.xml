@@ -47,6 +47,8 @@
     <string name="unknown_tab">Unknown Tab</string>
     <string name="tabs_header">Tabs</string>
     <string name="menu">Menu</string>
+
+    <string name="synth_heading">Freakuency Synth</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

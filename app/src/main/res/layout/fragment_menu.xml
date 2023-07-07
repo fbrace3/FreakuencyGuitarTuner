@@ -56,6 +56,12 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Metronome" />
+        <Button
+            android:id="@+id/btnSynth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Synth" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,19 +69,22 @@
             android:layout_below="@id/btnMetronome"
             android:layout_marginTop="8dp"
             android:gravity="center"
+            android:background="#FFFFFF"
             android:orientation="vertical">
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000000" />
+                android:background="#FFFFFF" />
 
             <!-- Adding padding on either side of the divider -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="40dp" /> <!-- Adjust the value of padding as per your preference -->
+                android:layout_height="0dp" /> <!-- Adjust the value of padding as per your preference -->
 
         </LinearLayout>
+
+
 
 
         <Button

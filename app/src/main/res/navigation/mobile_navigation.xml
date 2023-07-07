@@ -113,6 +113,12 @@
         android:label="Shopping"
         tools:layout="@layout/fragment_shopping" />
 
+    <fragment
+        android:id="@+id/nav_synth"
+        android:name="edu.msudenver.cs3013.project01.SynthFragment"
+        android:label="Synth"
+        tools:layout="@layout/fragment_synth" />
+
     <activity
         android:id="@+id/tab_activity"
         android:name="edu.msudenver.cs3013.project01.TabsActivity"
