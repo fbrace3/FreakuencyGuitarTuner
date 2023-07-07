@@ -11,29 +11,27 @@ class TabsActivity : AppCompatActivity(), TabsListener {
     var isDualPane: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //val userName = intent.getStringExtra(MainActivity.USER_NAME_KEY)
-        val userName = "ffrreedd"
-        //val userName = arguments?.getString("username")
-
-        val bundle = Bundle()
-        bundle.putString(USER_NAME_KEY, userName)
-
-        val tabsListFragment = TabsListFragment()
-        tabsListFragment.arguments = bundle
         setContentView(R.layout.activity_tabs)
 
 
+//        val userName = intent.getStringExtra(MainActivity.USER_NAME_KEY)
+//
+//        val bundle = Bundle()
+//        bundle.putString(USER_NAME_KEY, userName)
+
+//        val tabsListFragment = TabsListFragment()
+//        tabsListFragment.arguments = bundle
+
+
+
         isDualPane = findViewById<View>(R.id.tabs_list_fragment) != null
-        if (isDualPane) {
-            val tabsListFragment = TabsListFragment()
-            tabsListFragment.arguments = bundle
-
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.tabs_list_fragment, tabsListFragment)
-                .commit()
-
-        }
+//        if (isDualPane) {
+//
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.tabs_resources_fragment, tabsListFragment)
+//                .commit()
+//
+//        }
     }
 
     override fun onSelected(id: Int) {

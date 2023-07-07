@@ -6,22 +6,6 @@
     tools:context=".StandardTuner"
     >
 
-
-
-<<<<<<< HEAD
-
-    <ImageView
-        android:id="@+id/upArrow"
-        android:paddingTop="130sp"
-        android:layout_width="220sp"
-        android:layout_height="220sp"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/angle_circle_up_icon" />
-
-
-=======
->>>>>>> aa47219351cfc6b342c5ea082b12878990e3837e
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -36,20 +20,16 @@
         android:textColor="@color/white"
         android:textStyle="bold|italic" />
 
-<<<<<<< HEAD
-=======
     <ImageView
         android:id="@+id/upArrow"
-        android:paddingTop="130sp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
         android:layout_below="@id/titleText"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/angle_circle_up_icon"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="20dp"/>
 
-        android:src="@drawable/angle_circle_up_icon" />
-
->>>>>>> aa47219351cfc6b342c5ea082b12878990e3837e
     <TextView
         android:id="@+id/standardTunerNote"
         android:layout_width="wrap_content"
@@ -57,7 +37,7 @@
         android:layout_below="@id/upArrow"
         android:layout_centerHorizontal="true"
         android:text="A"
-        android:textSize="160sp"
+        android:textSize="140sp"
         android:layout_marginTop="0dp"
         android:gravity="center"/>
 
@@ -72,7 +52,6 @@
         android:layout_marginBottom="20dp"/>
 
     <Button
-<<<<<<< HEAD
         android:id="@+id/startButton"
         android:layout_width="match_parent"
         android:layout_height="50sp"
@@ -80,12 +59,5 @@
         android:layout_marginBottom="80sp"
         android:text="Start" />
 
-=======
-        android:id="@+id/start_button"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
-        android:text="Start" />
->>>>>>> aa47219351cfc6b342c5ea082b12878990e3837e
+
 </RelativeLayout>

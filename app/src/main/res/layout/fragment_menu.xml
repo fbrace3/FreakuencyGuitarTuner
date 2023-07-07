@@ -7,13 +7,16 @@
         android:id="@+id/logged_in_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/constant_log_in"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="9dp"
-        android:paddingTop="60dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="9dp"
+        android:paddingTop="60dp"
+        android:text="@string/constant_log_in"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -19,15 +19,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var bottomNavigationView: BottomNavigationView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-        val userName = intent.getStringExtra(USER_NAME_KEY)
+        var userName = intent.getStringExtra(USER_NAME_KEY)
         val bundle = Bundle()
         bundle.putString(USER_NAME_KEY, userName)
 
+        if (userName != null) {
+            userData.username = userName
+        }
 
         setSupportActionBar(findViewById(R.id.toolbar))
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -64,8 +68,8 @@ class MainActivity : AppCompatActivity() {
         val settingFragment = navController.graph.findNode(R.id.nav_settings)
         settingFragment?.addArgument("username", NavArgument.Builder().setDefaultValue(userName).build())
 
-        val intent = Intent(this, TabsActivity::class.java)
-        intent.putExtra("USER_NAME_KEY", userName)
+//        val intent = Intent(this, TabsActivity::class.java)
+//        intent.putExtra("USER_NAME_KEY", userName)
 
 
         setupActionBarWithNavController(navController, appBarConfiguration)

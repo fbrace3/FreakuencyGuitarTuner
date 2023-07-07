@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import edu.msudenver.cs3013.project01.userData.username
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,10 +30,12 @@ class TabsListFragment : Fragment(), View.OnClickListener {
     private var param2: String? = null
 
     private lateinit var tabsListener: TabsListener
-    private var username: String? = null
+   // private var username: String? = null
+
 
     private val mainMenuButton: View?
         get() = view?.findViewById(R.id.btnMainMenu)
+    private lateinit var loggedInText: TextView
 
 
     override fun onAttach(context: Context) {
@@ -58,7 +62,7 @@ class TabsListFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_tabs_list, container, false)
 
-        username = arguments?.getString(USER_NAME_KEY)
+        //username = arguments?.getString(USER_NAME_KEY)
         //username = "jimmy"
 
         return view
@@ -66,9 +70,15 @@ class TabsListFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState:Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var username = userData.username
+//        val bundle = Bundle()
+//        bundle.putString(MainActivity.USER_NAME_KEY, userData.username)
 
-        val bundle = Bundle()
-        bundle.putString(MainActivity.USER_NAME_KEY, username)
+        val loggedInMessage = getString(R.string.constant_log_in, username)
+        loggedInText = view.findViewById(R.id.logged_in_text)
+        loggedInText.text = loggedInMessage
+
+
 
         mainMenuButton?.setOnClickListener {
                 val intent = Intent(requireContext(), MainActivity::class.java)

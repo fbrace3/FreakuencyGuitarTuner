@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 const val USER_NAME_KEY = "USER_NAME_KEY"
@@ -17,13 +18,15 @@ const val IS_LOGGED_IN = "IS_LOGGED_IN"
 const val LOGGED_IN_USERNAME = "LOGGED_IN_USERNAME"
 
 //This is done as an example for simplicity and user/pwd credentials should never be stored in an app
-const val USER_NAME_CORRECT_VALUE = "fred"
-const val PASSWORD_CORRECT_VALUE = "fred"
+ var USER_NAME_CORRECT_VALUE = userData.username
+ var PASSWORD_CORRECT_VALUE = userData.password
 
 class LoginActivity : AppCompatActivity() {
 
     private val submitButton: Button
         get() = findViewById(R.id.submit_button)
+    private val registerButton: Button
+        get() = findViewById(R.id.register_button)
 
     private val userName: EditText
         get() = findViewById(R.id.user_name)
@@ -31,10 +34,14 @@ class LoginActivity : AppCompatActivity() {
     private val password: EditText
         get() = findViewById(R.id.password)
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+//        if (userName != null) {
+//            userData.username = userName
+//        }
         submitButton.setOnClickListener {
 
             val userNameForm = userName.text.toString().trim()
@@ -67,6 +74,11 @@ class LoginActivity : AppCompatActivity() {
                 toast.show()
             }
 
+        }
+        registerButton.setOnClickListener {
+            Intent(this, RegisterActivity::class.java).also { registerIntent ->
+                startActivity(registerIntent)
+            }
         }
     }
 

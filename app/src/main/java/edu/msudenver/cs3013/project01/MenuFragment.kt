@@ -1,5 +1,6 @@
 package edu.msudenver.cs3013.project01
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,9 +30,10 @@ class MenuFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_menu, container, false)
 
         // Retrieve the username argument
-        username = arguments?.getString(USER_NAME_KEY)
+        //username = arguments?.getString(USER_NAME_KEY)
         //username = "fredd"
         // Perform any necessary initialization or UI updates with the username
+        username = userData.username
         val loggedInMessage = getString(R.string.constant_log_in, username)
         loggedInText = view.findViewById(R.id.logged_in_text)
         loggedInText.text = loggedInMessage
@@ -66,7 +68,9 @@ class MenuFragment : Fragment() {
         }
 
         tabsButton.setOnClickListener {
-            findNavController().navigate(R.id.tab_activity)
+            val intent = Intent(requireActivity(), TabsActivity::class.java)
+            intent.putExtra(MainActivity.USER_NAME_KEY, username)
+            startActivity(intent)
         }
         resourcesButton.setOnClickListener {
             findNavController().navigate(R.id.nav_resources)

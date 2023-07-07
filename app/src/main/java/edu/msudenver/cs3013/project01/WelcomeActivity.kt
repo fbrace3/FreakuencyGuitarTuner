@@ -51,7 +51,10 @@ class WelcomeActivity : AppCompatActivity() {
                 backButton.isVisible = true
                 backButton.setOnClickListener {
                     //Finishes this activity and so goes back to the previous activity
-                    finish()
+                    Intent(this, LoginActivity::class.java).also { loginIntent ->
+                        //Add the data
+                        startActivity(loginIntent)
+                    }
                 }
             }
         }
