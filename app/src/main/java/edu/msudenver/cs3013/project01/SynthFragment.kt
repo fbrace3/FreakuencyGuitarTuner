@@ -145,7 +145,7 @@ class SynthFragment : Fragment() {
     private fun playSound(note: String) {
         val soundId = soundMap[note]
         soundId?.let {
-            soundPool.play(it, 4f, 4f, 0, 0, 1f)
+            soundPool.play(it, 6f, 6f, 0, 0, 1f)
         }
     }
 

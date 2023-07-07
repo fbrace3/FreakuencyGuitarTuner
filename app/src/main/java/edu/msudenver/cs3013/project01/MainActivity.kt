@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_menu, R.id.nav_chromatic_tuner, R.id.nav_metronome, R.id.tab_activity, R.id.nav_standard_tuner, R.id.nav_resources, R.id.nav_shopping
+                R.id.nav_menu, R.id.nav_chromatic_tuner, R.id.nav_metronome, R.id.tab_activity, R.id.nav_standard_tuner, R.id.nav_resources, R.id.nav_shopping, R.id.nav_synth
             ),
             drawerLayout
         )
@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.tab_activity -> navController.navigate(R.id.tab_activity)
                 R.id.nav_shopping -> navController.navigate(R.id.nav_shopping)
                 R.id.nav_resources -> navController.navigate(R.id.nav_resources)
+                R.id.nav_synth -> navController.navigate(R.id.nav_synth)
                 // Add more cases for other menu items
             }
 

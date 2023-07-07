@@ -20,11 +20,11 @@
         android:title="Metronome"
         android:icon="@drawable/recent" />
     <item
-        android:id="@+id/nav_resources"
-        android:title="Resources"
-        android:icon="@drawable/resources" />
+        android:id="@+id/nav_synth"
+        android:title="Synth"
+        android:icon="@drawable/baseline_music_note_24" />
     <item
-        android:id="@+id/nav_shopping"
-        android:title="Shopping"
-        android:icon="@drawable/shopping" />
+        android:id="@+id/tab_activity"
+        android:title="Tabs"
+        android:icon="@drawable/tabs" />
 </menu>

@@ -1,5 +1,4 @@
 package edu.msudenver.cs3013.project01
-
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
@@ -29,7 +28,7 @@ class StandardTuner : Fragment() {
     private lateinit var startButton: Button
     private lateinit var audioRecord: AudioRecord
 
-    private val audioBufferSize = 1024
+    private val audioBufferSize = 2048
     private val audioSampleRate = 44100
     private val audioBufferOverlap = 0
     private var audioBuffer = ShortArray(audioBufferSize)
@@ -43,6 +42,7 @@ class StandardTuner : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_standard_tuner, container, false)
 
         noteTextView = rootView.findViewById(R.id.standardTunerNote)
+
         startButton = rootView.findViewById(R.id.startButton)
 
         startButton.setOnClickListener {
@@ -100,7 +100,8 @@ class StandardTuner : Fragment() {
             val frequency = maxIndex * sampleRate / magnitude.size
 
             val frequencyString: String = "%.2f Hz".format(frequency)
-            Log.d("StandardTuner", frequencyString)
-        }
+            noteTextView.text = frequencyString
+            Log.d("Tuner", frequencyString)
         }
     }
+}

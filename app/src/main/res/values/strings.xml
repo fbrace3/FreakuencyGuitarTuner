@@ -20,6 +20,8 @@
     <string name="standard_tuner">Standard Tuner</string>
     <string name="chromatic_tuner">Chromatic Tuner</string>
     <string name="metronome">Metronome</string>
+    <string name="synth">Mini Synth</string>
+
     <string name="tabs">Tabs</string>
     <string name="resources">Resources</string>
     <string name="shopping">Shopping</string>

@@ -6,8 +6,12 @@
         <item name="android:windowBackground">@drawable/loginbackground</item>
         <item name="android:textColor">@color/black</item>
         <item name="colorPrimary">@color/grey</item>
-        <item name="colorPrimaryVariant">@color/grey</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/dark_grey</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/blue_dark</item>
+        <item name="colorSecondaryVariant">@color/blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+
 
     </style>
 

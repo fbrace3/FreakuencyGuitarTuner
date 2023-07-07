@@ -22,15 +22,20 @@
             android:icon="@drawable/recent"
             android:title="@string/metronome" />
         <item
-            android:id="@+id/tab_activity"
-            android:icon="@drawable/tabs"
-            android:title="@string/tabs" />
+            android:id="@+id/nav_synth"
+            android:icon="@drawable/baseline_music_note_24"
+            android:title="@string/synth" />
+
     </group>
 
     <group
         android:id="@+id/menu_bottom"
         android:checkableBehavior="single">
 
+        <item
+            android:id="@+id/tab_activity"
+            android:icon="@drawable/tabs"
+            android:title="@string/tabs" />
         <item
             android:id="@+id/nav_resources"
             android:icon="@drawable/resources"
