@@ -22,7 +22,6 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginTop="80dp"
                 android:textColor="@color/white"
                 style="@style/ResourcesTextView"
                 android:text="@string/resources_header" />
@@ -100,11 +99,11 @@
         </LinearLayout>
     </ScrollView>
 
-<!--    <Button-->
-<!--        android:id="@+id/btnMainMenu"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
+    <Button
+        android:id="@+id/btnMainMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-<!--        android:text="Main Menu" />-->
+        android:text="Main Menu" />
 
 </LinearLayout>

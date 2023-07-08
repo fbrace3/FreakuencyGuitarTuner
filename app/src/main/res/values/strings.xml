@@ -48,7 +48,21 @@
     <string name="tab4">Salt Creek</string>
     <string name="unknown_tab">Unknown Tab</string>
     <string name="tabs_header">Tabs</string>
+    <string name="resources_header">Resources</string>
+    <string name="scales_header">Scales</string>
     <string name="menu">Menu</string>
+
+    <string name="scales">Scales</string>
+    <string name="chords">Chords</string>
+    <string name="arp">Arpeggios</string>
+    <string name="modes">Modes</string>
+
+    <string name="majorScales">Major Scale</string>
+    <string name="minorScales">Minor Scale</string>
+    <string name="majorPentatonic">Major Pentatonic</string>
+    <string name="minorPentatonic">Minor Pentatonic</string>
+    <string name="unknown_resource">Unknown Resource</string>
+
 
     <string name="synth_heading">Freakuency Synth</string>
     <!-- TODO: Remove or change this placeholder text -->

@@ -5,6 +5,16 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Metronome"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
     <EditText
         android:id="@+id/editTextBpm"
         android:layout_width="wrap_content"

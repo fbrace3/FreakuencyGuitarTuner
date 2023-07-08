@@ -22,10 +22,10 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginTop="80dp"
                 android:textColor="@color/white"
-                style="@style/ResourcesTextView"
-                android:text="@string/resources_header" />
+                android:layout_marginTop="80dp"
+                style="@style/ScalesTextView"
+                android:text="@string/scales_header" />
             <TextView
                 android:id="@+id/logged_in_text"
                 android:layout_width="wrap_content"
@@ -46,12 +46,13 @@
                 android:background="?android:attr/dividerVertical" />
 
             <TextView
-                android:id="@+id/Scales"
+                android:id="@+id/MajorScale"
                 style="@style/TabsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="@string/scales" />
+
+                android:text="@string/majorScales" />
 
             <View
                 android:layout_width="match_parent"
@@ -59,12 +60,12 @@
                 android:background="?android:attr/dividerVertical" />
 
             <TextView
-                android:id="@+id/Chords"
+                android:id="@+id/MinorScale"
                 style="@style/TabsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="@string/chords" />
+                android:text="@string/minorScales" />
 
             <View
                 android:layout_width="match_parent"
@@ -72,12 +73,12 @@
                 android:background="?android:attr/dividerVertical" />
 
             <TextView
-                android:id="@+id/arpeggios"
+                android:id="@+id/MajorPentatonicScale"
                 style="@style/TabsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="@string/arp" />
+                android:text="@string/majorPentatonic" />
 
             <View
                 android:layout_width="match_parent"
@@ -85,12 +86,12 @@
                 android:background="?android:attr/dividerVertical" />
 
             <TextView
-                android:id="@+id/modes"
+                android:id="@+id/MinorPentatonicScale"
                 style="@style/TabsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="@string/modes" />
+                android:text="@string/minorPentatonic" />
 
             <View
                 android:layout_width="match_parent"
@@ -100,11 +101,11 @@
         </LinearLayout>
     </ScrollView>
 
-<!--    <Button-->
-<!--        android:id="@+id/btnMainMenu"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
+    <Button
+        android:id="@+id/btnMainMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-<!--        android:text="Main Menu" />-->
+        android:text="Main Menu" />
 
 </LinearLayout>

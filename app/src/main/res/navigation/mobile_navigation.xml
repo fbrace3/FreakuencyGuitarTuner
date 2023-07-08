@@ -167,4 +167,35 @@
             app:argType="string" />
 
     </activity>
+
+    <fragment
+        android:id="@+id/nav_resources_choice"
+        android:name="edu.msudenver.cs3013.project01.ResourcesChoiceFragment"
+        android:label="Synth"
+        tools:layout="@layout/fragment_resouces_choice" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_details"
+        android:name="edu.msudenver.cs3013.project01.ResourcesDetailsFragment"
+        android:label="Synth"
+        tools:layout="@layout/fragment_resources_details" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_scales"
+        android:name="edu.msudenver.cs3013.project01.ScalesFragment"
+        android:label="Scales"
+        tools:layout="@layout/fragment_resouces_choice" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

@@ -89,6 +89,13 @@
         <item name="android:padding">18dp</item>
     </style>
 
+    <style name="ResourcesTextView" parent="Base.TextAppearance.AppCompat.Large" >
+        <item name="android:padding">18dp</item>
+    </style>
+    <style name="ScalesTextView" parent="Base.TextAppearance.AppCompat.Large" >
+        <item name="android:padding">18dp</item>
+    </style>
+
     <style name="button_rectangle">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">16sp</item>
