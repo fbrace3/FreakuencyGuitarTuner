@@ -1,9 +1,11 @@
 package edu.msudenver.cs3013.project01
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -39,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
 //        if (userName != null) {
 //            userData.username = userName
 //        }
@@ -59,8 +62,8 @@ class LoginActivity : AppCompatActivity() {
                 //Set the name of the activity to launch
                 Intent(this, WelcomeActivity::class.java).also { welcomeIntent ->
                     //Add the data
-                    welcomeIntent.putExtra(USER_NAME_KEY, userNameForm)
-                    welcomeIntent.putExtra(PASSWORD_KEY, passwordForm)
+                    welcomeIntent.putExtra(userData.username, userNameForm)
+                    welcomeIntent.putExtra(userData.password, passwordForm)
 
                     //Reset text fields to blank
                     this.userName.text.clear()

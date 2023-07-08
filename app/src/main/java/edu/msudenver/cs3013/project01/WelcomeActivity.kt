@@ -1,7 +1,10 @@
 package edu.msudenver.cs3013.project01
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.service.autofill.UserData
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -29,8 +32,8 @@ class WelcomeActivity : AppCompatActivity() {
         //Get the intent which started this activity
         intent.let { loginIntent ->
 
-            val userNameForm = loginIntent?.getStringExtra(USER_NAME_KEY) ?: ""
-            val passwordForm = loginIntent?.getStringExtra(PASSWORD_KEY) ?: ""
+            val userNameForm = loginIntent?.getStringExtra(userData.username) ?: ""
+            val passwordForm = loginIntent?.getStringExtra(userData.password) ?: ""
 
             val loggedInCorrectly =
                 hasEnteredCorrectCredentials(userNameForm.trim(), passwordForm.trim())
@@ -52,10 +55,13 @@ class WelcomeActivity : AppCompatActivity() {
                 backButton.isVisible = true
                 backButton.setOnClickListener {
                     //Finishes this activity and so goes back to the previous activity
-                    val intent = Intent(this, LoginActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(intent)
+//                    val intent = Intent(this, LoginActivity::class.java)
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    Log.d(TAG, "userData.welcomefinishfail: $userData.welcomfinishfail")
+//                    startActivity(intent)
                     finish()
+
+
                 }
             }
         }
@@ -90,8 +96,8 @@ class WelcomeActivity : AppCompatActivity() {
         userNameForm: String,
         passwordForm: String
     ): Boolean {
-        return userNameForm.contentEquals(USER_NAME_CORRECT_VALUE) && passwordForm.contentEquals(
-            PASSWORD_CORRECT_VALUE
+        return userNameForm.contentEquals(userData.username) && passwordForm.contentEquals(
+            userData.password
         )
     }
 }

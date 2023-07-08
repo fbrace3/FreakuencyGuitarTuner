@@ -47,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
             if (firstNameForm.isNotEmpty() && passwordForm.isNotEmpty() && lastNameForm.isNotEmpty() && ageForm.isNotEmpty() && favoriteInstrumentForm.isNotEmpty()) {
 
                 userData.firstName = firstNameForm
+
                 userData.lastName = lastNameForm
                 userData.username = userNameForm
                 userData.password = passwordForm
