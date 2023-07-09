@@ -17,10 +17,6 @@ import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
-interface ResourceListener {
-    fun onSelected(id: Int)
-}
-
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var drawerLayout: DrawerLayout
@@ -34,26 +30,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // Inside MainActivity's onCreate() or wherever you navigate to ResourcesFragment
-
-
 
         setSupportActionBar(findViewById(R.id.toolbar))
         drawerLayout = findViewById(R.id.drawer_layout)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController // Obtain the navController instance
+        val navController = navHostFragment.navController
 
-        // Check if there is an incoming intent
+        // Check if the intent contains information from a specific fragment
         val fromFragment = intent.getStringExtra("FROM_TABS")
         val userName = intent.getStringExtra(USER_NAME_KEY)
 
+        // Navigate to the appropriate destination based on the source fragment
         if (fromFragment == "TabsListFragment") {
-            // The intent came from TabsListFragment
             navController.navigate(R.id.nav_menu, createBundle(userName))
         } else {
-            // The intent came from a different fragment
             navController.navigate(R.id.nav_menu, createBundle(userName))
         }
 
@@ -88,7 +80,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_shopping -> navController.navigate(R.id.nav_shopping)
                 R.id.nav_resources -> navController.navigate(R.id.nav_resources)
                 R.id.nav_synth -> navController.navigate(R.id.nav_synth)
-                // Add more cases for other menu items
             }
 
             true
@@ -108,38 +99,30 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
+
+        // Log the clicked toolbar item ID for debugging purposes
         Log.d(TAG, "Toolbar item clicked: ${item.itemId}")
+
+        // Let the Navigation component handle the selected item as a navigation action
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item)
     }
 
     private fun createBundle(userName: String?): Bundle {
         val bundle = Bundle()
+
+        // Put the user name into the bundle with a predefined key
         bundle.putString(USER_NAME_KEY, userName)
+
+        // Log the user name value for debugging purposes
         Log.d(TAG, "SendingMainActivity USER_NAME_KEY value: $USER_NAME_KEY")
         Log.d(TAG, "SendingMainActivity Received userName: $userName")
+
+        // Store the user name in the global userData object for access throughout the app
         if (userName != null) {
             userData.username = userName
         }
+
         return bundle
     }
-    // Override the onSelected method from the ResourceListener interface
-//    override fun onSelected(id: Int) {
-//        val navController = findNavController(R.id.nav_host_fragment)
-//        when (id) {
-//            R.id.scales_resources -> {
-//                navController.navigate(R.id.nav_resources_scales)
-//            }
-//            R.id.chords_resources -> {
-//                navController.navigate(R.id.nav_resources_chords)
-//            }
-//            R.id.arpeggios_resources -> {
-//                navController.navigate(R.id.nav_resources_arpeggios)
-//            }
-//            R.id.modes_resources -> {
-//                navController.navigate(R.id.nav_resources_modes)
-//            }
-//            // Handle other resource IDs here
-//        }
-//    }
 }
