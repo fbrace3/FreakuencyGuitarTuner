@@ -100,4 +100,8 @@ class RegisterActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         }
     }
+    companion object {
+        const val USER_NAME_KEY = "edu.msudenver.cs3013.project01.USER_NAME"
+        const val PASSWORD_KEY = "edu.msudenver.cs3013.project01.PASSWORD"
+    }
 }

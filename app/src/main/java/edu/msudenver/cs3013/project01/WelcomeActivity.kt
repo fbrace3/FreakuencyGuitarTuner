@@ -33,7 +33,10 @@ class WelcomeActivity : AppCompatActivity() {
         intent.let { loginIntent ->
 
             val userNameForm = loginIntent?.getStringExtra(userData.username) ?: ""
+            Log.d(TAG, "SendingRecieved intent: $userData.username")
             val passwordForm = loginIntent?.getStringExtra(userData.password) ?: ""
+            Log.d(TAG, "SendingRecieved intent2: $userData.password")
+
 
             val loggedInCorrectly =
                 hasEnteredCorrectCredentials(userNameForm.trim(), passwordForm.trim())
@@ -46,6 +49,7 @@ class WelcomeActivity : AppCompatActivity() {
                     Intent(this, MainActivity::class.java).also { mainIntent ->
                         //Add the data
                         mainIntent.putExtra(MainActivity.USER_NAME_KEY, userNameForm)
+                        Log.d(TAG, "Sending intent: $userNameForm")
 
                         startActivity(mainIntent)
                     }}
@@ -57,7 +61,7 @@ class WelcomeActivity : AppCompatActivity() {
                     //Finishes this activity and so goes back to the previous activity
 //                    val intent = Intent(this, LoginActivity::class.java)
 //                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    Log.d(TAG, "userData.welcomefinishfail: $userData.welcomfinishfail")
+                    Log.d(TAG, "userData.welcomefinishfail: $userData.username")
 //                    startActivity(intent)
                     finish()
 
@@ -99,5 +103,9 @@ class WelcomeActivity : AppCompatActivity() {
         return userNameForm.contentEquals(userData.username) && passwordForm.contentEquals(
             userData.password
         )
+    }
+    companion object {
+        const val IS_LOGGED_IN = "IS_LOGGED_IN"
+        const val LOGGED_IN_USERNAME = "LOGGED_IN_USERNAME"
     }
 }

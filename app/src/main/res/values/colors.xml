@@ -12,4 +12,16 @@
     <color name="blue_dark">#FF0000A0</color>
     <color name="grey">#808080</color>
     <color name="dark_grey">#555555</color>
+
+    <color name="dark_orange">#FF8C00</color>
+    <color name="orange">#FFA500</color>
+    <color name="light_orange">#FFD700</color>
+    <color name="coral">#FF7F50</color>
+    <color name="peach">#FFDAB9</color>
+    <color name="tangerine">#FFA07A</color>
+    <color name="burnt_orange">#CC5500</color>
+    <color name="pumpkin">#FF7518</color>
+    <color name="amber">#FFBF00</color>
+
+
 </resources>

@@ -7,18 +7,7 @@
     app:menu="@menu/drawer_menu"
     app:defaultNavHost="true">
 
-
-<!--    <fragment-->
-<!--        android:id="@+id/nav_home"-->
-<!--        android:name="edu.msudenver.cs3013.project01.HomeFragment"-->
-<!--        android:label="@string/home"-->
-<!--        tools:layout="@layout/fragment_home">-->
-<!--        <action-->
-<!--            android:id="@+id/nav_home_to_menu"-->
-<!--            app:destination="@id/nav_menu"-->
-<!--            app:popUpTo="@id/nav_home" />-->
-<!--    </fragment>-->
-
+    <!-- Fragments -->
     <fragment
         android:id="@+id/nav_menu"
         android:name="edu.msudenver.cs3013.project01.MenuFragment"
@@ -27,23 +16,6 @@
         <argument
             android:name="username"
             app:argType="string" />
-<!--        <action-->
-<!--            android:id="@+id/nav_home_to_standard_tuner"-->
-<!--            app:destination="@id/nav_standard_tuner"-->
-<!--            app:popUpTo="@id/nav_menu" />-->
-<!--        <action-->
-<!--            android:id="@+id/nav_home_to_chromatic_tuner"-->
-<!--            app:destination="@id/nav_chromatic_tuner"-->
-<!--            app:popUpTo="@id/nav_menu" />-->
-<!--        <action-->
-<!--            android:id="@+id/nav_home_to_metronome"-->
-<!--            app:destination="@id/nav_metronome"-->
-<!--            app:popUpTo="@id/nav_menu" />-->
-<!--        <action-->
-<!--            android:id="@+id/nav_home_to_tabs"-->
-<!--            app:destination="@id/tab_activity"-->
-<!--            app:popUpTo="@id/nav_menu" />-->
-
     </fragment>
 
     <fragment
@@ -51,7 +23,6 @@
         android:name="edu.msudenver.cs3013.project01.ContentFragment"
         android:label="@string/content"
         tools:layout="@layout/fragment_content" />
-
 
     <fragment
         android:id="@+id/nav_settings"
@@ -80,6 +51,7 @@
         android:name="edu.msudenver.cs3013.project01.TabsDetailsFragment"
         android:label="Tab Details"
         tools:layout="@layout/fragment_tabs_details"/>
+
     <fragment
         android:id="@+id/nav_tabs_list_fragment"
         android:name="edu.msudenver.cs3013.project01.TabsListFragment"
@@ -94,19 +66,12 @@
             app:popUpTo="@id/nav_tabs_list_fragment" />
     </fragment>
 
-
-
     <fragment
         android:id="@+id/nav_metronome"
         android:name="edu.msudenver.cs3013.project01.MetronomeFragment"
         android:label="Metronome"
         tools:layout="@layout/fragment_metronome" />
 
-    <fragment
-        android:id="@+id/nav_resources"
-        android:name="edu.msudenver.cs3013.project01.ResourcesFragment"
-        android:label="Resources"
-        tools:layout="@layout/fragment_resources" />
     <fragment
         android:id="@+id/nav_shopping"
         android:name="edu.msudenver.cs3013.project01.ShoppingFragment"
@@ -119,6 +84,77 @@
         android:label="Synth"
         tools:layout="@layout/fragment_synth" />
 
+
+    <fragment
+        android:id="@+id/nav_resources"
+        android:name="edu.msudenver.cs3013.project01.ResourcesFragment"
+        android:label="Resources"
+        tools:layout="@layout/fragment_resources" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_choice"
+        android:name="edu.msudenver.cs3013.project01.ResourcesChoiceFragment"
+        android:label="Resources Choice"
+        tools:layout="@layout/fragment_resouces_choice" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_details"
+        android:name="edu.msudenver.cs3013.project01.ResourcesDetailsFragment"
+        android:label="Resources Details"
+        tools:layout="@layout/fragment_resources_details" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_scales"
+        android:name="edu.msudenver.cs3013.project01.ScalesFragment"
+        android:label="Scales"
+        tools:layout="@layout/fragment_resouces_choice"
+        app:popUpTo="@id/nav_resources">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_chords"
+        android:name="edu.msudenver.cs3013.project01.ChordsFragment"
+        android:label="Chords"
+        tools:layout="@layout/fragment_resouces_choice" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_arpeggios"
+        android:name="edu.msudenver.cs3013.project01.ArpeggiosFragment"
+        android:label="Arpeggios"
+        tools:layout="@layout/fragment_resouces_choice" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_resources_modes"
+        android:name="edu.msudenver.cs3013.project01.ModesFragment"
+        android:label="Modes"
+        tools:layout="@layout/fragment_resources_details" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+
+    <!-- Activities -->
     <activity
         android:id="@+id/tab_activity"
         android:name="edu.msudenver.cs3013.project01.TabsActivity"
@@ -128,7 +164,6 @@
             android:name="username"
             app:argType="string" />
     </activity>
-
 
     <activity
         android:id="@+id/tab_detail_activity"
@@ -147,15 +182,10 @@
         android:name="edu.msudenver.cs3013.project01.WelcomeActivity"
         android:label="Welcome"
         tools:layout="@layout/activity_welcome" >
-         <argument
+        <argument
             android:name="username"
             app:argType="string" />
-<!--        <action-->
-<!--            android:id="@+id/nav_Welcome_to_main"-->
-<!--            app:destination="@id/nav_main"-->
-<!--            app:popUpTo="@+id/nav_Welcome"-->
-<!--            app:popUpToInclusive="true" />-->
-        </activity>
+    </activity>
 
     <activity
         android:id="@+id/nav_main"
@@ -165,37 +195,7 @@
         <argument
             android:name="username"
             app:argType="string" />
-
     </activity>
 
-    <fragment
-        android:id="@+id/nav_resources_choice"
-        android:name="edu.msudenver.cs3013.project01.ResourcesChoiceFragment"
-        android:label="Synth"
-        tools:layout="@layout/fragment_resouces_choice" >
-        <argument
-            android:name="username"
-            app:argType="string" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_resources_details"
-        android:name="edu.msudenver.cs3013.project01.ResourcesDetailsFragment"
-        android:label="Synth"
-        tools:layout="@layout/fragment_resources_details" >
-        <argument
-            android:name="username"
-            app:argType="string" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_resources_scales"
-        android:name="edu.msudenver.cs3013.project01.ScalesFragment"
-        android:label="Scales"
-        tools:layout="@layout/fragment_resouces_choice" >
-        <argument
-            android:name="username"
-            app:argType="string" />
-    </fragment>
-
 </navigation>
+

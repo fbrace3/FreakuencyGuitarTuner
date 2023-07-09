@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
+
 const val USER_NAME_KEY = "USER_NAME_KEY"
 const val PASSWORD_KEY = "PASSWORD_KEY"
 
@@ -47,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
 //        }
         registerButton.setOnClickListener {
             Intent(this, RegisterActivity::class.java).also { registerIntent ->
+                Log.d(TAG, "Sending intent: $RegisterActivity")
                 startActivity(registerIntent)
             }
         }
@@ -70,6 +72,8 @@ class LoginActivity : AppCompatActivity() {
                     this.password.text.clear()
 
                     //Launch
+                    Log.d(TAG, "Sending intent: ${WelcomeActivity}")
+                    Log.d(TAG, "Sending message: $userNameForm")
                     startActivity(welcomeIntent)
                 }
             } else {

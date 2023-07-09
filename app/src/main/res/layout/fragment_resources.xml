@@ -1,110 +1,65 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    xmlns:style="http://schemas.android.com/apk/res-auto"
+    tools:context=".ResourcesFragment">
+
+    <!-- Header -->
 
 
-
-    <ScrollView
+    <!-- List of Options -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
 
-        <LinearLayout
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/resources_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:text="Resources"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/scales_resources"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textColor="@color/white"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:text="Scales" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginTop="80dp"
-                android:textColor="@color/white"
-                style="@style/ResourcesTextView"
-                android:text="@string/resources_header" />
-            <TextView
-                android:id="@+id/logged_in_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="9dp"
-                android:layout_marginBottom="9dp"
-                android:text="@string/constant_log_in"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
+        <TextView
+            android:id="@+id/chords_resources"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textColor="@color/white"
+            style="@style/TextAppearance.AppCompat.Medium"
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/dividerVertical" />
+            android:text="Chords" />
 
-            <TextView
-                android:id="@+id/Scales"
-                style="@style/TabsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/scales" />
+        <TextView
+            android:id="@+id/arpeggios_resources"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textColor="@color/white"
+            style="@style/TextAppearance.AppCompat.Medium"
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/dividerVertical" />
+            android:text="Arpeggios" />
 
-            <TextView
-                android:id="@+id/Chords"
-                style="@style/TabsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/chords" />
+        <TextView
+            android:id="@+id/modes_resources"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textColor="@color/white"
+            style="@style/TextAppearance.AppCompat.Medium"
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/dividerVertical" />
+            android:text="Modes" />
 
-            <TextView
-                android:id="@+id/arpeggios"
-                style="@style/TabsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/arp" />
+    </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/dividerVertical" />
-
-            <TextView
-                android:id="@+id/modes"
-                style="@style/TabsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/modes" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/dividerVertical" />
-
-        </LinearLayout>
-    </ScrollView>
-
-<!--    <Button-->
-<!--        android:id="@+id/btnMainMenu"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-
-<!--        android:text="Main Menu" />-->
-
-</LinearLayout>
+</FrameLayout>
