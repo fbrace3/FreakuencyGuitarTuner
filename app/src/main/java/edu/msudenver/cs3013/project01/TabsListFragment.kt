@@ -70,6 +70,7 @@ class TabsListFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState:Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var user = arguments?.getSerializable("user")
         var username = userData.username
 //        val bundle = Bundle()
 //        bundle.putString(MainActivity.USER_NAME_KEY, userData.username)

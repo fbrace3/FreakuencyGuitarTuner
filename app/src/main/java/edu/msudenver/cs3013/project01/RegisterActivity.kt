@@ -1,5 +1,6 @@
 package edu.msudenver.cs3013.project01
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -28,9 +29,14 @@ class RegisterActivity : AppCompatActivity() {
     private val favoriteInstrument: EditText
         get() = findViewById(R.id.favorite_instrument)
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        val myUser = User()
+
+        //        if (userName != null) {
+
         registerButton.setOnClickListener {
 
             var firstNameForm = firstName.text.toString().trim()
@@ -44,37 +50,50 @@ class RegisterActivity : AppCompatActivity() {
 
             hideKeyboard()
 
-            if (firstNameForm.isNotEmpty() && passwordForm.isNotEmpty() && lastNameForm.isNotEmpty() && ageForm.isNotEmpty() && favoriteInstrumentForm.isNotEmpty()) {
+            if (firstNameForm.isNotEmpty() && passwordForm.isNotEmpty() && lastNameForm.isNotEmpty() && ageForm.isNotEmpty() && favoriteInstrumentForm.isNotEmpty() && userNameForm.isNotEmpty() && passwordForm == confirmPasswordForm) {
 
-                userData.firstName = firstNameForm
-
-                userData.lastName = lastNameForm
-                userData.username = userNameForm
-                userData.password = passwordForm
-                userData.age = ageForm.toInt()
-                userData.favoriteInstrument = favoriteInstrumentForm
+                myUser.firstName = firstNameForm
+                myUser.lastName = lastNameForm
+                myUser.username = userNameForm
+                myUser.password = passwordForm
+                myUser.age = ageForm.toInt()
+                myUser.favoriteInstrument = favoriteInstrumentForm
 
                 Intent(this, LoginActivity::class.java).also { loginIntent ->
+                    loginIntent.putExtra("myUsername", myUser.username)
+                    loginIntent.putExtra("myPassword", myUser.password)
+                    loginIntent.putExtra("myUser", myUser)
+                    this.userName.text.clear()
+                    this.password.text.clear()
+                    this.confirmPassword.text.clear()
+                    this.firstName.text.clear()
+                    this.lastName.text.clear()
+                    this.age.text.clear()
+                    this.favoriteInstrument.text.clear()
+                    setResult(
+                        Activity.RESULT_OK,
+                        loginIntent)
                     val toast = Toast.makeText(
                         this,
                         getString(R.string.register_form_entry_success),
                         Toast.LENGTH_LONG)
                     toast.setGravity(Gravity.CENTER, 0, 0)
                     toast.show()
-                    startActivity(loginIntent)
+                    finish()
                 }
 
-
-
-                //Set the name of the activity to launch
 //                Intent(this, WelcomeActivity::class.java).also { welcomeIntent ->
 //                    //Add the data
-//                    welcomeIntent.putExtra(USER_NAME_KEY, userNameForm)
-//                    welcomeIntent.putExtra(PASSWORD_KEY, passwordForm)
+//                    welcomeIntent.putExtra("myUser", myUser)
 //
 //                    //Reset text fields to blank
 //                    this.userName.text.clear()
 //                    this.password.text.clear()
+//                    this.confirmPassword.text.clear()
+//                    this.firstName.text.clear()
+//                    this.lastName.text.clear()
+//                    this.age.text.clear()
+//                    this.favoriteInstrument.text.clear()
 //
 //                    //Launch
 //                    startActivity(welcomeIntent)
@@ -99,9 +118,5 @@ class RegisterActivity : AppCompatActivity() {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         }
-    }
-    companion object {
-        const val USER_NAME_KEY = "edu.msudenver.cs3013.project01.USER_NAME"
-        const val PASSWORD_KEY = "edu.msudenver.cs3013.project01.PASSWORD"
     }
 }

@@ -1,5 +1,6 @@
 package edu.msudenver.cs3013.project01
 
+import android.R.attr.data
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+
 
 class MenuFragment : Fragment() {
     private lateinit var chromaticTunerButton: Button
@@ -21,6 +23,7 @@ class MenuFragment : Fragment() {
     private lateinit var synthButton: Button
 
     private var username: String? = null
+    private var user: User? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,10 +34,10 @@ class MenuFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_menu, container, false)
 
         // Retrieve the username argument
-        //username = arguments?.getString(USER_NAME_KEY)
+        user = arguments?.getSerializable("user") as User?
         //username = "fredd"
         // Perform any necessary initialization or UI updates with the username
-        username = userData.username
+        username = user?.username
         val loggedInMessage = getString(R.string.constant_log_in, username)
         loggedInText = view.findViewById(R.id.logged_in_text)
         loggedInText.text = loggedInMessage
@@ -48,6 +51,8 @@ class MenuFragment : Fragment() {
         //username = arguments?.getString(USER_NAME_KEY)
 
 
+        val bundle = Bundle()
+        bundle.putSerializable("user", user)
 
         standardTunerButton = view.findViewById(R.id.btnStandardTuner)
         chromaticTunerButton = view.findViewById(R.id.btnChromaticTuner)
@@ -71,7 +76,7 @@ class MenuFragment : Fragment() {
 
         tabsButton.setOnClickListener {
             val intent = Intent(requireActivity(), TabsActivity::class.java)
-            intent.putExtra(MainActivity.USER_NAME_KEY, username)
+            intent.putExtra("username", user?.username)
             startActivity(intent)
         }
         resourcesButton.setOnClickListener {

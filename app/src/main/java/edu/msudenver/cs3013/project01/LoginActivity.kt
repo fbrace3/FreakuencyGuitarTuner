@@ -1,28 +1,16 @@
 package edu.msudenver.cs3013.project01
 
-import android.content.ContentValues.TAG
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-
-
-const val USER_NAME_KEY = "USER_NAME_KEY"
-const val PASSWORD_KEY = "PASSWORD_KEY"
-
-const val IS_LOGGED_IN = "IS_LOGGED_IN"
-const val LOGGED_IN_USERNAME = "LOGGED_IN_USERNAME"
-
-//This is done as an example for simplicity and user/pwd credentials should never be stored in an app
- var USER_NAME_CORRECT_VALUE = userData.username
- var PASSWORD_CORRECT_VALUE = userData.password
+import androidx.activity.result.contract.ActivityResultContracts
 
 class LoginActivity : AppCompatActivity() {
 
@@ -37,21 +25,30 @@ class LoginActivity : AppCompatActivity() {
     private val password: EditText
         get() = findViewById(R.id.password)
 
+    private var registeredUsername: String? = ""
+    private var registeredPassword: String? = ""
+    private var registeredUser = User()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
 //        if (userName != null) {
 //            userData.username = userName
 //        }
-        registerButton.setOnClickListener {
-            Intent(this, RegisterActivity::class.java).also { registerIntent ->
-                Log.d(TAG, "Sending intent: $RegisterActivity")
-                startActivity(registerIntent)
+
+        val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                registeredUsername = data?.getStringExtra("myUsername")
+                registeredPassword = data?.getStringExtra("myPassword")
+                registeredUser = data?.getSerializableExtra("myUser") as User
             }
         }
+        registerButton.setOnClickListener {
+            startForResult.launch(Intent(this, RegisterActivity::class.java))
+        }
+
         submitButton.setOnClickListener {
 
             var userNameForm = userName.text.toString().trim()
@@ -64,16 +61,27 @@ class LoginActivity : AppCompatActivity() {
                 //Set the name of the activity to launch
                 Intent(this, WelcomeActivity::class.java).also { welcomeIntent ->
                     //Add the data
-                    welcomeIntent.putExtra(userData.username, userNameForm)
-                    welcomeIntent.putExtra(userData.password, passwordForm)
+                    welcomeIntent.putExtra("registeredUsername", registeredUsername)
+                    welcomeIntent.putExtra("registeredPassword", registeredPassword)
+                    welcomeIntent.putExtra("myUser", registeredUser)
+                    welcomeIntent.putExtra("USER_NAME_KEY", userNameForm)
+                    welcomeIntent.putExtra("PASSWORD_KEY", passwordForm)
+
+
+                    //Debugging tests
+//                    if (registeredUsername != null) {
+//                        Log.d("Login Username", registeredUsername!!)
+//                    }
+//                    if (registeredPassword != null) {
+//                        Log.d("Login Password", registeredPassword!!)
+//                    }
+
 
                     //Reset text fields to blank
                     this.userName.text.clear()
                     this.password.text.clear()
 
                     //Launch
-                    Log.d(TAG, "Sending intent: ${WelcomeActivity}")
-                    Log.d(TAG, "Sending message: $userNameForm")
                     startActivity(welcomeIntent)
                 }
             } else {
