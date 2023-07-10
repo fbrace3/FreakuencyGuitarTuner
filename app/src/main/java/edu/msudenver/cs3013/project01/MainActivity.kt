@@ -39,9 +39,12 @@ class MainActivity : AppCompatActivity() {
 //        Log.d("password", myUser.password)
 
         //TODO: Can this be deleted and replaced with the createBundle() method?
-        val bundle = Bundle()
+        val bundle = createBundle(passedUser) // key is "user" for this createBundle() method
         bundle.putSerializable("username", passedUser)
 
+        val fragment = MenuFragment().apply {
+            arguments = bundle
+        }
 //        if (userName != null) {
 //            myUser.username = userName
 //        }
@@ -120,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         val bundle = Bundle()
 
         // Put the user name into the bundle with a predefined key
-        bundle.putSerializable("user", passedUser)
+        bundle.putSerializable("user", user)
 
         // Log the user name value for debugging purposes
         //Log.d(TAG, "SendingMainActivity USER_NAME_KEY value: $USER_NAME_KEY")

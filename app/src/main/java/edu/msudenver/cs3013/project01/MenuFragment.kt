@@ -3,6 +3,7 @@ package edu.msudenver.cs3013.project01
 import android.R.attr.data
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +39,10 @@ class MenuFragment : Fragment() {
         //username = "fredd"
         // Perform any necessary initialization or UI updates with the username
         username = user?.username
+
+        //test if username is being passed from main activity
+        Log.d("Menu Username", "username: $username")
+
         val loggedInMessage = getString(R.string.constant_log_in, username)
         loggedInText = view.findViewById(R.id.logged_in_text)
         loggedInText.text = loggedInMessage
@@ -46,11 +51,8 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         // Retrieve the username argument
         //username = arguments?.getString(USER_NAME_KEY)
-
-
         val bundle = Bundle()
         bundle.putSerializable("user", user)
 
