@@ -27,6 +27,7 @@ class StandardTuner : Fragment() {
     private lateinit var noteTextView: TextView
     private lateinit var startButton: Button
     private lateinit var stopButton: Button
+    private lateinit var menuButton: Button
 
     private val audioBufferSize = 8192
     private val audioSampleRate = 44100
@@ -55,6 +56,7 @@ class StandardTuner : Fragment() {
 
         startButton = rootView.findViewById(R.id.startButton)
         stopButton = rootView.findViewById(R.id.stopButton)
+        menuButton = rootView.findViewById(R.id.menuButton)
 
         startButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
@@ -75,6 +77,9 @@ class StandardTuner : Fragment() {
         stopButton.setOnClickListener {
             audioRecord.stop()
 
+        }
+        menuButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
         }
         return rootView
     }

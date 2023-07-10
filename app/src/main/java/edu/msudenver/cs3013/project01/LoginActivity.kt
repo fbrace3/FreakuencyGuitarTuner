@@ -46,6 +46,10 @@ class LoginActivity : AppCompatActivity() {
                 registeredUser = data?.getSerializableExtra("myUser") as User
                 registeredUsername = registeredUser.username
                 registeredPassword = registeredUser.password
+
+
+                userName.setText(registeredUsername)
+                password.setText(registeredPassword)
             }
         }
         registerButton.setOnClickListener {

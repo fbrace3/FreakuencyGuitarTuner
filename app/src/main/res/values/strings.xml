@@ -67,4 +67,15 @@
     <string name="synth_heading">Freakuency Synth</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <string name="app_menu">Freakuency Tuner Menu</string>
+    <string name="standard_tuner_menu">Standard Tuner</string>
+    <string name="chromatic_tuner_menu">Chromatic Tuner</string>
+    <string name="metronome_menu">Metronome</string>
+    <string name="synth_menu">Mini Synth</string>
+    <string name="tabs_menu">Tabs</string>
+    <string name="resources_menu">Resources</string>
+    <string name="shopping_menu">Shopping</string>
+    <string name="enter_bpm">Enter BPM</string>
+
+    <string name="instructions">Press a button to play the tone</string>
 </resources>

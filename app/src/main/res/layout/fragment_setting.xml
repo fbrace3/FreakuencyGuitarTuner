@@ -10,16 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="30dp"
-    android:text="@string/settings_fragment"
-    android:textAlignment="center"
-    android:textSize="20sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/settings_fragment"
+        android:textAlignment="center"
+        android:textSize="20sp"
         android:textColor="@color/design_default_color_background"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <LinearLayout
@@ -31,6 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:paddingStart="40dp"
         android:paddingEnd="40dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_vertical">
 
         <TextView
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="• Preference 1"
+            android:text="•"
             android:textSize="25sp"
             android:textColor="@android:color/white" />
 
@@ -47,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="• Preference 2"
+            android:text="•"
             android:textSize="25sp"
             android:textColor="@android:color/white" />
 
@@ -56,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="• Preference 3"
+            android:text="•"
             android:textSize="25sp"
             android:textColor="@android:color/white" />
 
@@ -65,7 +66,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="• Preference 4"
+            android:text="•"
+            android:textSize="25sp"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/preference_header6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="•"
             android:textSize="25sp"
             android:textColor="@android:color/white" />
 
@@ -73,9 +81,10 @@
             android:id="@+id/preference_header5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="• Preference 5"
+            android:text="•"
             android:textSize="25sp"
             android:textColor="@android:color/white" />
+
 
     </LinearLayout>
 

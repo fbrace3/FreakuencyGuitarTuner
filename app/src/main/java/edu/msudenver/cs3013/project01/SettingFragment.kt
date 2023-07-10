@@ -29,6 +29,7 @@ class SettingFragment : Fragment() {
     private lateinit var preference3: TextView
     private lateinit var preference4: TextView
     private lateinit var preference5: TextView
+    private lateinit var preference6: TextView
     private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,12 +65,14 @@ class SettingFragment : Fragment() {
         preference3 = view.findViewById(R.id.preference_header3)
         preference4 = view.findViewById(R.id.preference_header4)
         preference5 = view.findViewById(R.id.preference_header5)
+        preference6 = view.findViewById(R.id.preference_header6)
 
         preference3.text = "Username: " + user?.username.toString()
         preference1.text = "First Name: " + user?.firstName.toString()
         preference2.text = "Last Name: " + user?.lastName.toString()
         preference4.text = "Age: " + user?.age.toString()
         preference5.text = "Favorite Instrument: " + user?.favoriteInstrument.toString()
+        preference6.text = "Email Address: " + user?.emailAddress.toString()
     }
 
     companion object {

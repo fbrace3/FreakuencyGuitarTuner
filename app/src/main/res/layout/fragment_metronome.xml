@@ -7,9 +7,10 @@
     android:gravity="center">
 
     <TextView
+        android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Metronome"
+        android:text="@string/metronome_menu"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/white"
@@ -24,11 +25,11 @@
         android:hint="Enter BPM"
         android:textSize="48dp"
         android:textColor="@color/black"
-        android:background="@color/white"
+        android:background="@color/grey"
         android:padding="10dp"
         android:layout_marginTop="16dp"
         android:textAlignment="center"
-        tools:text="enter bpm"/>
+        tools:text="@string/enter_bpm" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,8 +94,9 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BACK"
+        android:text="@string/menu"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        tools:text="menu"/>
 
 </LinearLayout>

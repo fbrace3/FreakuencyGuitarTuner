@@ -53,14 +53,15 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/angle_circle_down_icon"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="0dp"/>
 
     <Button
         android:id="@+id/startButton"
         android:layout_width="200dp"
         android:layout_height="50sp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80sp"
+        android:layout_below="@id/downArrow"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp"
         android:paddingRight="10sp"
         android:text="Start" />
 
@@ -68,11 +69,19 @@
         android:id="@+id/stopButton"
         android:layout_width="200dp"
         android:layout_height="50sp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80sp"
+        android:layout_below="@id/downArrow"
         android:layout_toEndOf="@id/startButton"
+        android:layout_marginTop="32dp"
         android:paddingLeft="0sp"
         android:text="Stop" />
 
+    <Button
+        android:id="@+id/menuButton"
+        android:layout_width="200dp"
+        android:layout_height="50sp"
+        android:layout_below="@id/stopButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20sp"
+        android:text="Menu" />
 
 </RelativeLayout>

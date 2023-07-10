@@ -27,11 +27,12 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:text="Freakuency Tuner Menu"
+            android:text="@string/app_menu"
             android:textSize="24sp"
             android:textStyle="bold|italic"
             tools:text="Freakuency Tuner Menu"/>
@@ -41,27 +42,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Standard Tuner" />
+            android:text="@string/standard_tuner_menu"
+            tools:text="Standard Tuner"/>
 
         <Button
             android:id="@+id/btnChromaticTuner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Chromatic Tuner" />
+            android:text="@string/chromatic_tuner_menu"
+            tools:text="Chromatic Tuner"/>
 
         <Button
             android:id="@+id/btnMetronome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Metronome" />
+            android:text="@string/metronome_menu"
+            tools:text="Metronome"/>
         <Button
             android:id="@+id/btnSynth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Synth" />
+            android:text="@string/synth_menu"
+            tools:text="Synth"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,21 +98,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Tabs" />
+            android:text="@string/tabs_menu"
+            tools:text="Tabs"/>
 
         <Button
             android:id="@+id/btnResources"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Resources" />
+            android:text="@string/resources_menu"
+            tools:text="Resources"
+            />
 
         <Button
             android:id="@+id/btnShopping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Shopping" />
+            android:text="@string/shopping_menu"
+            tools:text="Shopping"/>
 
     </LinearLayout>
 

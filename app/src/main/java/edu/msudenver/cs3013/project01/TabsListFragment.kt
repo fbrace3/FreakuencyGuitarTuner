@@ -72,15 +72,28 @@ class TabsListFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState:Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        user = arguments?.getSerializable("myUser") as User?
-
-        var username = user?.username
+//        user = arguments?.getSerializable("myUser") as User?
+//
+//        var username = user?.username
 //        val bundle = Bundle()
 //        bundle.putString(MainActivity.USER_NAME_KEY, userData.username)
+
+            //cheating workaround
+        var username = userData.username
 
         val loggedInMessage = getString(R.string.constant_log_in, username)
         loggedInText = view.findViewById(R.id.logged_in_text)
         loggedInText.text = loggedInMessage
+
+
+        //just to get the username to pass to the main menu
+        val passedUser = User()
+        passedUser.username = username
+        passedUser.password = userData.password
+        passedUser.emailAddress = userData.emailAddress
+        passedUser.firstName = userData.firstName
+        passedUser.lastName = userData.lastName
+        passedUser.age = userData.age
 
 
 

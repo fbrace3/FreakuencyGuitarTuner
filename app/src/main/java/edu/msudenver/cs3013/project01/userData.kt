@@ -29,5 +29,6 @@ object userData {
     var favoriteInstrument: String = "null"
     var firstName: String = "null"
     var lastName: String = "null"
+    var emailAddress: String = "null"
 
 }
