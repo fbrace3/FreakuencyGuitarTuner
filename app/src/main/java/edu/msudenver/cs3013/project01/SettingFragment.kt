@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 
 //// TODO: appears to be unused
 //// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,7 @@ class SettingFragment : Fragment() {
     private lateinit var preference3: TextView
     private lateinit var preference4: TextView
     private lateinit var preference5: TextView
+    private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,7 @@ class SettingFragment : Fragment() {
             //// TODO: appears to be unused
 //            param1 = it.getString(ARG_PARAM1)
 //            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -43,13 +47,12 @@ class SettingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_setting, container, false)
-        var user = arguments?.getSerializable("user")
-
-        var username = user
-
+        user = arguments?.getSerializable("user") as User?
+        val username = user?.username
         val settingMessage = getString(R.string.settings_fragment, username)
         settingText = view.findViewById(R.id.setting_text)
         settingText.text = settingMessage
+
         return view
     }
 
@@ -62,11 +65,11 @@ class SettingFragment : Fragment() {
         preference4 = view.findViewById(R.id.preference_header4)
         preference5 = view.findViewById(R.id.preference_header5)
 
-        preference3.text = "Username: " + userData.username.toString()
-        preference1.text = "First Name: " + userData.firstName.toString()
-        preference2.text = "Last Name: " + userData.lastName.toString()
-        preference4.text = "Age: " + userData.age.toString()
-        preference5.text = "Favorite Instrument: " + userData.favoriteInstrument.toString()
+        preference3.text = "Username: " + user?.username.toString()
+        preference1.text = "First Name: " + user?.firstName.toString()
+        preference2.text = "Last Name: " + user?.lastName.toString()
+        preference4.text = "Age: " + user?.age.toString()
+        preference5.text = "Favorite Instrument: " + user?.favoriteInstrument.toString()
     }
 
     companion object {
