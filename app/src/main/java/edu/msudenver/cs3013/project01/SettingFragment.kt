@@ -47,7 +47,7 @@ class SettingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_setting, container, false)
-        user = arguments?.getSerializable("user") as User?
+        user = arguments?.getSerializable("myUser") as User?
         val username = user?.username
         val settingMessage = getString(R.string.settings_fragment, username)
         settingText = view.findViewById(R.id.setting_text)

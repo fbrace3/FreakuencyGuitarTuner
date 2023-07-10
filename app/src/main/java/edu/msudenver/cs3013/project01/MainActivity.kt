@@ -32,18 +32,19 @@ class MainActivity : AppCompatActivity() {
         // you navigate to ResourcesFragment
 
 
-        passedUser = intent.getSerializableExtra("myUser") as User
-
+        passedUser = intent.getSerializableExtra("myUser") as User?
+        Log.d("Main Username", passedUser?.username.toString())
         //Debug logs
 //        Log.d("username", myUser.username)
 //        Log.d("password", myUser.password)
 
         //TODO: Can this be deleted and replaced with the createBundle() method?
         val bundle = createBundle(passedUser) // key is "user" for this createBundle() method
-        bundle.putSerializable("username", passedUser)
+        bundle.putSerializable("myUser", passedUser)
 
-        val fragment = MenuFragment().apply {
+        val menuFragment = MenuFragment().apply {
             arguments = bundle
+
         }
 //        if (userName != null) {
 //            myUser.username = userName
@@ -82,10 +83,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         val settingFragment = navController.graph.findNode(R.id.nav_settings)
-        settingFragment?.addArgument("user", NavArgument.Builder().setDefaultValue(passedUser!!).build())
+        settingFragment?.addArgument("myUser", NavArgument.Builder().setDefaultValue(passedUser!!).build())
 
         val intent = Intent(this, TabsActivity::class.java)
-//        intent.putExtra("USER_NAME_KEY", userName)
+        intent.putExtra("myUser", passedUser!!)
 
 
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -123,7 +124,7 @@ class MainActivity : AppCompatActivity() {
         val bundle = Bundle()
 
         // Put the user name into the bundle with a predefined key
-        bundle.putSerializable("user", user)
+        bundle.putSerializable("myUser", user)
 
         // Log the user name value for debugging purposes
         //Log.d(TAG, "SendingMainActivity USER_NAME_KEY value: $USER_NAME_KEY")

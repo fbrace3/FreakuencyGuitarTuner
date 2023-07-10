@@ -35,7 +35,7 @@ class MenuFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_menu, container, false)
 
         // Retrieve the username argument
-        user = arguments?.getSerializable("user") as User?
+        user = arguments?.getSerializable("myUser") as User?
         //username = "fredd"
         // Perform any necessary initialization or UI updates with the username
         username = user?.username
@@ -54,7 +54,7 @@ class MenuFragment : Fragment() {
         // Retrieve the username argument
         //username = arguments?.getString(USER_NAME_KEY)
         val bundle = Bundle()
-        bundle.putSerializable("user", user)
+        bundle.putSerializable("myUser", user)
 
         standardTunerButton = view.findViewById(R.id.btnStandardTuner)
         chromaticTunerButton = view.findViewById(R.id.btnChromaticTuner)
@@ -78,7 +78,7 @@ class MenuFragment : Fragment() {
 
         tabsButton.setOnClickListener {
             val intent = Intent(requireActivity(), TabsActivity::class.java)
-            intent.putExtra("username", user?.username)
+            intent.putExtra("myUser", user)
             startActivity(intent)
         }
         resourcesButton.setOnClickListener {

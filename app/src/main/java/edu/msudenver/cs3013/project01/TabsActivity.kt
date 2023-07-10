@@ -1,19 +1,25 @@
 package edu.msudenver.cs3013.project01
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 const val TABS_ID = "TABS_ID"
+
 interface TabsListener {
     fun onSelected(id: Int)
 }
 class TabsActivity : AppCompatActivity(), TabsListener {
+    private var passedUser: User? = null
     var isDualPane: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabs)
 
 
+
+        passedUser = intent.getSerializableExtra("myUser") as User?
+        Log.d("Tabs Username", passedUser?.username.toString())
 //        val userName = intent.getStringExtra(MainActivity.USER_NAME_KEY)
 //
 //        val bundle = Bundle()
@@ -35,6 +41,7 @@ class TabsActivity : AppCompatActivity(), TabsListener {
     }
 
     override fun onSelected(id: Int) {
+        passedUser = intent.getSerializableExtra("myUser") as User?
         if (isDualPane) {
             val detailFragment = supportFragmentManager.findFragmentById(R.id.tabs_detail)
             if (detailFragment is TabsDetailsFragment) {
@@ -44,6 +51,7 @@ class TabsActivity : AppCompatActivity(), TabsListener {
                     .apply {
                         putExtra(TABS_ID, id)
                     }
+                //detailIntent.putExtra("myUser", passedUser)
                 startActivity(detailIntent)
 
             }
@@ -52,6 +60,7 @@ class TabsActivity : AppCompatActivity(), TabsListener {
                 .apply {
                     putExtra(TABS_ID, id)
                 }
+            //detailIntent.putExtra("myUser", passedUser)
             startActivity(detailIntent)
         }
     }

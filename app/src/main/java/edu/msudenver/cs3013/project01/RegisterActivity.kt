@@ -60,8 +60,9 @@ class RegisterActivity : AppCompatActivity() {
                 myUser.favoriteInstrument = favoriteInstrumentForm
 
                 Intent(this, LoginActivity::class.java).also { loginIntent ->
-                    loginIntent.putExtra("myUsername", myUser.username)
-                    loginIntent.putExtra("myPassword", myUser.password)
+                    //TODO: May be able to remove these two lines
+//                    loginIntent.putExtra("myUsername", myUser.username)
+//                    loginIntent.putExtra("myPassword", myUser.password)
                     loginIntent.putExtra("myUser", myUser)
                     this.userName.text.clear()
                     this.password.text.clear()
@@ -82,6 +83,7 @@ class RegisterActivity : AppCompatActivity() {
                     finish()
                 }
 
+                // TODO: This could be removed
 //                Intent(this, WelcomeActivity::class.java).also { welcomeIntent ->
 //                    //Add the data
 //                    welcomeIntent.putExtra("myUser", myUser)

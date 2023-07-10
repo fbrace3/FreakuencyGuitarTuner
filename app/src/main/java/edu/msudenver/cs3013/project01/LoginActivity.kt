@@ -40,9 +40,12 @@ class LoginActivity : AppCompatActivity() {
         val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
-                registeredUsername = data?.getStringExtra("myUsername")
-                registeredPassword = data?.getStringExtra("myPassword")
+                // TODO: Could be removed
+//                registeredUsername = data?.getStringExtra("myUsername")
+//                registeredPassword = data?.getStringExtra("myPassword")
                 registeredUser = data?.getSerializableExtra("myUser") as User
+                registeredUsername = registeredUser.username
+                registeredPassword = registeredUser.password
             }
         }
         registerButton.setOnClickListener {
@@ -61,8 +64,9 @@ class LoginActivity : AppCompatActivity() {
                 //Set the name of the activity to launch
                 Intent(this, WelcomeActivity::class.java).also { welcomeIntent ->
                     //Add the data
-                    welcomeIntent.putExtra("registeredUsername", registeredUsername)
-                    welcomeIntent.putExtra("registeredPassword", registeredPassword)
+                    //TODO: These two lines could be removed
+//                    welcomeIntent.putExtra("registeredUsername", registeredUsername)
+//                    welcomeIntent.putExtra("registeredPassword", registeredPassword)
                     welcomeIntent.putExtra("myUser", registeredUser)
                     welcomeIntent.putExtra("USER_NAME_KEY", userNameForm)
                     welcomeIntent.putExtra("PASSWORD_KEY", passwordForm)

@@ -28,6 +28,7 @@ class TabsListFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var user: User? = null
 
     private lateinit var tabsListener: TabsListener
    // private var username: String? = null
@@ -43,7 +44,7 @@ class TabsListFragment : Fragment(), View.OnClickListener {
         if (context is TabsListener) {
             tabsListener = context
         } else {
-            throw RuntimeException("Must implement TabsListner")
+            throw RuntimeException("Must implement TabsListener")
         }
     }
 
@@ -59,6 +60,7 @@ class TabsListFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        user = arguments?.getSerializable("myUser") as User?
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_tabs_list, container, false)
 
@@ -70,8 +72,9 @@ class TabsListFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState:Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var user = arguments?.getSerializable("user")
-        var username = userData.username
+        user = arguments?.getSerializable("myUser") as User?
+
+        var username = user?.username
 //        val bundle = Bundle()
 //        bundle.putString(MainActivity.USER_NAME_KEY, userData.username)
 
