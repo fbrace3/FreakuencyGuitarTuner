@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
 //        Log.d("username", myUser.username)
 //        Log.d("password", myUser.password)
 
-        //TODO: Can this be deleted and replaced with the createBundle() method?
         val bundle = createBundle(passedUser) // key is "user" for this createBundle() method
         bundle.putSerializable("myUser", passedUser)
 
