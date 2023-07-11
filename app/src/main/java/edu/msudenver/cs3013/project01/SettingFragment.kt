@@ -6,23 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 
-//// TODO: appears to be unused
-//// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//private const val ARG_PARAM1 = "param1"
-//private const val ARG_PARAM2 = "param2"
-//
-///**
-// * A simple [Fragment] subclass.
-// * Use the [SettingFragment.newInstance] factory method to
-// * create an instance of this fragment.
-// */
 class SettingFragment : Fragment() {
-    // TODO: appears to be unused
-//    private var param1: String? = null
-//    private var param2: String? = null
     private lateinit var settingText: TextView
     private lateinit var preference1: TextView
     private lateinit var preference2: TextView
@@ -35,10 +20,7 @@ class SettingFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            //// TODO: appears to be unused
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-
+            // Retrieve arguments if needed
         }
     }
 
@@ -48,9 +30,13 @@ class SettingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_setting, container, false)
+
+        // Retrieve the user object from the arguments
         user = arguments?.getSerializable("myUser") as User?
         val username = user?.username
         val settingMessage = getString(R.string.settings_fragment, username)
+
+        // Set the settingText TextView with the setting message
         settingText = view.findViewById(R.id.setting_text)
         settingText.text = settingMessage
 
@@ -60,6 +46,7 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Initialize and set the preference TextViews with user information
         preference1 = view.findViewById(R.id.preference_header)
         preference2 = view.findViewById(R.id.preference_header2)
         preference3 = view.findViewById(R.id.preference_header3)
@@ -76,13 +63,12 @@ class SettingFragment : Fragment() {
     }
 
     companion object {
+        // Unused function, can be removed if not needed
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             SettingFragment().apply {
                 arguments = Bundle().apply {
-                    //// TODO: appears to be unused
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
+                    // Set arguments if needed
                 }
             }
     }

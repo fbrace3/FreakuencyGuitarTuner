@@ -14,17 +14,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 
 class LoginActivity : AppCompatActivity() {
 
+    // Properties for UI elements
     private val submitButton: Button
         get() = findViewById(R.id.submit_button)
     private val registerButton: Button
         get() = findViewById(R.id.register_button)
-
     private val userName: EditText
         get() = findViewById(R.id.user_name)
-
     private val password: EditText
         get() = findViewById(R.id.password)
 
+    // Properties for registered user data
     private var registeredUsername: String? = ""
     private var registeredPassword: String? = ""
     private var registeredUser = User()
@@ -33,20 +33,13 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-//        if (userName != null) {
-//            userData.username = userName
-//        }
-
+        // Initialize click listeners for buttons
         val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
-                // TODO: Could be removed
-//                registeredUsername = data?.getStringExtra("myUsername")
-//                registeredPassword = data?.getStringExtra("myPassword")
                 registeredUser = data?.getSerializableExtra("myUser") as User
                 registeredUsername = registeredUser.username
                 registeredPassword = registeredUser.password
-
 
                 userName.setText(registeredUsername)
                 password.setText(registeredPassword)
@@ -57,39 +50,20 @@ class LoginActivity : AppCompatActivity() {
         }
 
         submitButton.setOnClickListener {
-
             var userNameForm = userName.text.toString().trim()
             var passwordForm = password.text.toString().trim()
 
             hideKeyboard()
 
             if (userNameForm.isNotEmpty() && passwordForm.isNotEmpty()) {
-
-                //Set the name of the activity to launch
                 Intent(this, WelcomeActivity::class.java).also { welcomeIntent ->
-                    //Add the data
-                    //TODO: These two lines could be removed
-//                    welcomeIntent.putExtra("registeredUsername", registeredUsername)
-//                    welcomeIntent.putExtra("registeredPassword", registeredPassword)
                     welcomeIntent.putExtra("myUser", registeredUser)
                     welcomeIntent.putExtra("USER_NAME_KEY", userNameForm)
                     welcomeIntent.putExtra("PASSWORD_KEY", passwordForm)
 
-
-                    //Debugging tests
-//                    if (registeredUsername != null) {
-//                        Log.d("Login Username", registeredUsername!!)
-//                    }
-//                    if (registeredPassword != null) {
-//                        Log.d("Login Password", registeredPassword!!)
-//                    }
-
-
-                    //Reset text fields to blank
                     this.userName.text.clear()
                     this.password.text.clear()
 
-                    //Launch
                     startActivity(welcomeIntent)
                 }
             } else {
@@ -101,11 +75,10 @@ class LoginActivity : AppCompatActivity() {
                 toast.setGravity(Gravity.CENTER, 0, 0)
                 toast.show()
             }
-
         }
-
     }
 
+    // Hide the keyboard
     private fun hideKeyboard() {
         if (currentFocus != null) {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
