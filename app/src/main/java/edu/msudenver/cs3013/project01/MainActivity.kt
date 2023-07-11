@@ -65,11 +65,11 @@ class MainActivity : AppCompatActivity() {
             passedUser?.firstName = userData.firstName
             passedUser?.lastName = userData.lastName
             passedUser?.age = userData.age
-            Toast.makeText(this, "ListFragment", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "ListFragment", Toast.LENGTH_SHORT).show()
             navController.navigate(R.id.nav_menu, createBundle(passedUser))
         } else {
             // The intent came from a different fragment
-            Toast.makeText(this, "NotTabListFragment", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "NotTabListFragment", Toast.LENGTH_SHORT).show()
             navController.navigate(R.id.nav_menu, createBundle(passedUser))
         }
 
