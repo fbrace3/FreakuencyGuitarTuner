@@ -9,4 +9,18 @@ Welcome to Freakuency - a music app with a built-in (incomplete) tuner, synth pi
 
 1. To run the app, open it and register for an account. (you can also log in with the test account: username: admin, password: admin)
 
-2. Once you have an account, you can log in and use the (incomplete) tuner, metronome, and synth, or browse through other resources.
+2. Once you have an account, you can log in and use the (incomplete) tuner, metronome, and synth or browse through our "catalog" of tablature.
+3.  *the Resources and shopping tab are incomplete!
+
+third party sources
+androidx.core:core-ktx:1.10.1: AndroidX Core Kotlin Extensions.
+androidx.appcompat:appcompat:1.6.1: AndroidX AppCompat library for backward compatibility.
+com.google.android.material:material:1.9.0: Material Components library by Google.
+androidx.navigation:navigation-fragment-ktx:2.6.0 and androidx.navigation:navigation-ui-ktx:2.6.0: AndroidX Navigation components.
+be.tarsos.dsp:core:2.5 and be.tarsos.dsp:jvm:2.5: TarsosDSP library for digital signal processing.
+com.github.barteksc:android-pdf-viewer:3.2.0-beta.1: Android PDF Viewer library by Barteksc.
+androidx.constraintlayout:constraintlayout:2.1.4: AndroidX ConstraintLayout library.
+org.apache.commons:commons-math3:3.6.1: Apache Commons Math library.
+junit:junit:4.13.2: JUnit testing framework.
+androidx.test.ext:junit:1.1.5: AndroidX JUnit extensions for Android testing.
+androidx.test.espresso:espresso-core:3.5.1: AndroidX Espresso framework for UI testing.
