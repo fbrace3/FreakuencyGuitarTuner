@@ -193,8 +193,8 @@
         android:label="Register"
         tools:layout="@layout/activity_main">
         <argument
-            android:name="username"
-            app:argType="string" />
+            android:name="user"
+            app:argType="edu.msudenver.cs3013.project01.User" />
     </activity>
 
 </navigation>

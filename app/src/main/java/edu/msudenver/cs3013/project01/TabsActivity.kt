@@ -51,7 +51,7 @@ class TabsActivity : AppCompatActivity(), TabsListener {
                     .apply {
                         putExtra(TABS_ID, id)
                     }
-                //detailIntent.putExtra("myUser", passedUser)
+                detailIntent.putExtra("myUser", passedUser)
                 startActivity(detailIntent)
 
             }
@@ -60,7 +60,7 @@ class TabsActivity : AppCompatActivity(), TabsListener {
                 .apply {
                     putExtra(TABS_ID, id)
                 }
-            //detailIntent.putExtra("myUser", passedUser)
+            detailIntent.putExtra("myUser", passedUser)
             startActivity(detailIntent)
         }
     }

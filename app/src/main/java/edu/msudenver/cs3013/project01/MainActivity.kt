@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var bottomNavigationView: BottomNavigationView
 
-    var passedUser: User? = null
+//    var passedUser: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         // you navigate to ResourcesFragment
 
 
-        passedUser = intent.getSerializableExtra("myUser") as User?
+        var passedUser = intent.getSerializableExtra("myUser") as User?
         Log.d("Main Username", passedUser?.username.toString())
         //Debug logs
 //        Log.d("username", myUser.username)
@@ -46,9 +46,6 @@ class MainActivity : AppCompatActivity() {
             arguments = bundle
 
         }
-//        if (userName != null) {
-//            myUser.username = userName
-//        }
 
         setSupportActionBar(findViewById(R.id.toolbar))
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -60,8 +57,15 @@ class MainActivity : AppCompatActivity() {
         // Check if there is an incoming intent
         val fromFragment = intent.getStringExtra("FROM_TABS")
 
-        if (fromFragment == "TabsListFragment") {
+        if (passedUser == null) {
             // The intent came from TabsListFragment
+            passedUser = User()
+            passedUser?.username = userData.username
+            passedUser?.password = userData.password
+            passedUser?.emailAddress = userData.emailAddress
+            passedUser?.firstName = userData.firstName
+            passedUser?.lastName = userData.lastName
+            passedUser?.age = userData.age
             Toast.makeText(this, "ListFragment", Toast.LENGTH_SHORT).show()
             navController.navigate(R.id.nav_menu, createBundle(passedUser))
         } else {
