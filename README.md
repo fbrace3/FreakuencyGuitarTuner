@@ -4,3 +4,9 @@
 # Your discussion post is the main place you will be discussing the project, but the README needs to include enough information so that we understand how to use the app, and what 3rd party sources you used when creating it
 
 https://msudenver.instructure.com/courses/82419/discussion_topics/1010646
+
+Welcome to Freakuency - a music app with a built-in (incomplete) tuner, synth piano, metronome, and more.
+
+1. To run the app, open it and register for an account. (you can also log in with the test account: username: admin, password: admin)
+
+2. Once you have an account, you can log in and use the (incomplete) tuner, metronome, and synth, or browse through other resources.
