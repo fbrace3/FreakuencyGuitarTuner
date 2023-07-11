@@ -29,6 +29,9 @@ class RegisterActivity : AppCompatActivity() {
     private val favoriteInstrument: EditText
         get() = findViewById(R.id.favorite_instrument)
 
+    private val emailAddress: EditText
+        get() = findViewById(R.id.email_address)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
             var confirmPasswordForm = confirmPassword.text.toString().trim()
             var ageForm = age.text.toString().trim()
             var favoriteInstrumentForm = favoriteInstrument.text.toString().trim()
+            var emailAddressForm = emailAddress.text.toString().trim()
 
 
             hideKeyboard()
@@ -58,6 +62,7 @@ class RegisterActivity : AppCompatActivity() {
                 myUser.password = passwordForm
                 myUser.age = ageForm.toInt()
                 myUser.favoriteInstrument = favoriteInstrumentForm
+                myUser.emailAddress = emailAddressForm
 
                 Intent(this, LoginActivity::class.java).also { loginIntent ->
                     //TODO: May be able to remove these two lines
@@ -71,6 +76,7 @@ class RegisterActivity : AppCompatActivity() {
                     this.lastName.text.clear()
                     this.age.text.clear()
                     this.favoriteInstrument.text.clear()
+                    this.emailAddress.text.clear()
                     setResult(
                         Activity.RESULT_OK,
                         loginIntent)
