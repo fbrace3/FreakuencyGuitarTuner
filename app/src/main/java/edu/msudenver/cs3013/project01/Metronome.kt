@@ -51,6 +51,7 @@ class MetronomeFragment : Fragment() {
 
         backButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
+            //navigate to menu fragment using jetpack navigation
 
         }
 

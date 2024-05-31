@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavArgument
+import androidx.navigation.NavGraph
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,12 +41,8 @@ class MainActivity : AppCompatActivity() {
 //        Log.d("password", myUser.password)
 
         val bundle = createBundle(passedUser) // key is "user" for this createBundle() method
-        bundle.putSerializable("myUser", passedUser)
+//        bundle.putSerializable("myUser", passedUser)
 
-        val menuFragment = MenuFragment().apply {
-            arguments = bundle
-
-        }
 
         setSupportActionBar(findViewById(R.id.toolbar))
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -52,10 +50,16 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController // Obtain the navController instance
 
+        val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
 
-        // Check if there is an incoming intent
-        val fromFragment = intent.getStringExtra("FROM_TABS")
+// Retrieve the user data from the intent
+        passedUser = intent.getSerializableExtra("myUser") as User?
 
+// Set default arguments for each fragment destination in the navigation graph
+        graph.addDefaultArguments(passedUser)
+
+// Set the graph to the NavController
+        navController.graph = graph
         if (passedUser == null) {
             // The intent came from TabsListFragment
             passedUser = User()
@@ -129,16 +133,6 @@ class MainActivity : AppCompatActivity() {
         // Put the user name into the bundle with a predefined key
         bundle.putSerializable("myUser", user)
 
-        // Log the user name value for debugging purposes
-        //Log.d(TAG, "SendingMainActivity USER_NAME_KEY value: $USER_NAME_KEY")
-        //Log.d(TAG, "SendingMainActivity Received userName: $userName")
-
-        //TODO: Already stored in the global variable: passedUser
-        // Store the user name in the global userData object for access throughout the app
-//        if (user != null) {
-//            passedUser? ?: userName
-//        }
-
         return bundle
     }
     override fun onSupportNavigateUp(): Boolean {
@@ -160,7 +154,17 @@ class MainActivity : AppCompatActivity() {
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item)
     }
+    private fun NavGraph.addDefaultArguments(user: User?) {
+        val bundle = Bundle()
+        bundle.putSerializable("myUser", user)
 
+        // Loop through each fragment destination in the graph and add default arguments
+        for (destination in this) {
+            if (destination is FragmentNavigator.Destination) {
+                destination.addArgument("myUser", NavArgument.Builder().setDefaultValue(user).build())
+            }
+        }
+    }
     // TODO: Appears to be unused
 //    companion object {
 //        const val USER_NAME_KEY = "username"
